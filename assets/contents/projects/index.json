@@ -1,0 +1,196 @@
+[
+  {
+    "project-name": "7 Eleven Salug Branch",
+    "region": "Zamboanga del Norte",
+    "date-completed": "12 July 2025",
+    "is-featured": true,
+    "assets-ref": "ladon-7eleven-salug.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-7eleven-salug/ladon-7eleven-salug-1.jpg",
+    "description": "Complete retail fit-out for the 7-Eleven Salug branch, delivering electrical, lighting, and compliance-ready infrastructure tailored to convenience retail standards."
+  },
+
+  {
+    "project-name": "Greengrass Site",
+    "region": "T'boli, South Cotabato",
+    "date-completed": "",
+    "assets-ref": "ladon-greengrass.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-greengrass/471521417_1631518474408378_600335714350286626_n.jpg",
+    "description": "End-to-end commercial site development at Greengrass in T'boli, featuring modular cabling, electrical systems, and foundational site preparation."
+  },
+
+  {
+    "project-name": "Service Workforce - Heavy Equipments, New Constructions, Restoration, Renovation & Fit-outs",
+    "region": "Metro Manila",
+    "date-completed": "",
+    "assets-ref": "ladon-workforce.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-workforce/ladon-wkfrc-7.png",
+    "description": "Comprehensive service-workforce solutions covering heavy equipment operations, new builds, restoration, renovation, and fit-outs, with network cabling and workspace optimization."
+  },
+
+  {
+    "project-name": "Verdon Parc Residential",
+    "region": "Davao City",
+    "date-completed": "",
+    "is-featured": true,
+    "assets-ref": "ladon-verdonparc.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-verdonparc/ladon-verdon-5.png",
+    "description": "High-rise residential electrical installation and lift-system integration at Verdon Parc, ensuring safety, efficiency, and seamless support for multi-story living."
+  },
+
+  {
+    "project-name": "LDS Church Sasa - General Repainting & Retiling Works",
+    "region": "Davao City",
+    "date-completed": "",
+    "assets-ref": "ladon-lds-sasa.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-lds-sasa/ladon-sasa-8.png",
+    "description": "Facility upgrade at LDS Church Sasa with general repainting, retiling, lighting, and electrical enhancements, all fully compliant and built to last."
+  },
+
+  {
+    "project-name": "LDS Church - Mauban",
+    "region": "Quezon Province",
+    "date-completed": "",
+    "assets-ref": "ladon-lds-mauban.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-lds-mauban/Mauban%20LBO%20Project.jpg",
+    "description": "Community-focused renovation of LDS Church Mauban, delivering structural improvements, electrical upgrades, and modular service delivery for worship and fellowship spaces."
+  },
+
+  {
+    "project-name": "LDS Church - Talavera Meeting House Repainting",
+    "region": "Nueva Ecija",
+    "date-completed": "",
+    "is-featured": true,
+    "assets-ref": "ladon-lds-talavera.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-lds-talavera/1300x1734.jpg",
+    "description": "Repainting and structural upgrades at Talavera Meeting House, paired with electrical enhancements to optimize safety, illumination, and worship experience."
+  },
+
+  {
+    "project-name": "General Milling Corporation - Facility Preparation (Retaining Walls, Roads & Parking Area Concreting)",
+    "region": "Cebu",
+    "date-completed": "",
+    "assets-ref": "ladon-gen-milling.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-gen-milling/ladon-gen-milling-2.png",
+    "description": "Industrial facility preparation for General Milling Corporation, including retaining walls, roadworks, and parking area concreting with integrated electrical and mechanical systems."
+  },
+
+  {
+    "project-name": "Mang Inasal - Lingayen",
+    "region": "Pangasinan",
+    "date-completed": "",
+    "is-featured": true,
+    "assets-ref": "ladon-inasal-lingayen.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-inasal-lingayen/Inasal-Lengayen.jpg",
+    "description": "Retail food-service build-out for Mang Inasal Lingayen, featuring full electrical, lighting, and compliance-ready installations for seamless restaurant operations."
+  },
+
+  {
+    "project-name": "Tiboli Meeting House Exterior Canopy and Painting Works",
+    "region": "South Cotabato",
+    "date-completed": "",
+    "assets-ref": "ladon-tiboli.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-tiboli/ladon-tiboli-2.png",
+    "description": "Exterior canopy construction and painting for T'boli Meeting House, delivering weatherproofing, structural reinforcement, and compliant electrical systems."
+  },
+
+  {
+    "project-name": "Network Cabling Works",
+    "region": "Various",
+    "date-completed": "",
+    "assets-ref": "ladon-network-cabling-works.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-network-cabling-works/ladon-network-cabling-works-4.jpg",
+    "description": "Multi-site network cabling and structured wiring installations, ensuring scalable, high-performance connectivity across facilities."
+  },
+
+  {
+    "project-name": "University of Mindanao - Library PABX, Paging System & Fire Protection System",
+    "region": "Davao City",
+    "date-completed": "",
+    "is-featured": true,
+    "assets-ref": "ladon-university-of-mindanao.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-university-of-mindanao/ladon-umlib-13.png",
+    "description": "Library infrastructure upgrade at University of Mindanao, installing PABX, paging, and fire-protection systems fully integrated with electrical and IT networks."
+  },
+
+  {
+    "project-name": "LDS Church - Muntinlupa Lift",
+    "region": "Metro Manila",
+    "date-completed": "2021",
+    "assets-ref": "ladon-lds-muntinlupa-lift.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-lds-muntinlupa-lift/2024-01-02.webp",
+    "description": "Installation of a compliant lift system at LDS Church Muntinlupa Meeting House, enhancing accessibility, safety, and congregant comfort."
+  },
+
+  {
+    "project-name": "LDS Church Laguna - Repairs & Improvement Works",
+    "region": "Laguna",
+    "date-completed": "2021",
+    "assets-ref": "ladon-lds-laguna.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-lds-laguna/ladon-ldslaguna-1.jpg",
+    "description": "Comprehensive repairs and facility improvements for LDS Church Laguna, including modular electrical upgrades and structural enhancements."
+  },
+
+  {
+    "project-name": "LDS Church - Various Works",
+    "region": "Various",
+    "date-completed": "",
+    "assets-ref": "ladon-lds-church.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-lds-church/ladon-church-6.png",
+    "description": "General support projects across multiple LDS Church sites, delivering electrical, painting, and compliance-ready systems adapted to each community’s needs."
+  },
+
+  {
+    "project-name": "LDS Church Carmen - General Repainting & Electrical Works",
+    "region": "Davao del Norte",
+    "date-completed": "",
+    "assets-ref": "ladon-lds-carmen.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-lds-carmen/ladon-carmen-2.png",
+    "description": "Aesthetic and functional enhancement of LDS Church Carmen through general repainting, retiling, and electrical upgrades for a refreshed worship environment."
+  },
+
+  {
+    "project-name": "Ladon Headquarters",
+    "region": "Davao City",
+    "date-completed": "",
+    "is-featured": true,
+    "assets-ref": "ladon-hq.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-hq/ladon-office-5.png",
+    "description": "Design and construction of Ladon Construction Headquarters, featuring modular system integration, branded interiors, and optimized operational workflows."
+  },
+
+  {
+    "project-name": "LDS Church - Guimba Meeting House Retaining Wall Project",
+    "region": "Nueva Ecija",
+    "date-completed": "",
+    "assets-ref": "ladon-lds-guimba-nueva-ecija.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-lds-guimba-nueva-ecija/500616022_24372366405717241_1065614866402377983_n.jpg",
+    "description": "Construction of retaining walls and electrical system upgrades at Guimba LDS Meeting House, ensuring structural integrity and safety for congregants."
+  },
+
+  {
+    "project-name": "Royeca Site - General Santos",
+    "region": "South Cotabato",
+    "date-completed": "",
+    "assets-ref": "ladon-royeca-gensan.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-royeca-gensan/gensan-royeca-2.png",
+    "description": "Commercial infrastructure development at Royeca Site, General Santos, delivering modular service delivery and robust electrical installations."
+  },
+
+  {
+    "project-name": "Aringay Chapel - Retilings & Repainting Works",
+    "region": "La Union",
+    "date-completed": "",
+    "assets-ref": "ladon-aringay.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-aringay/ladon-aringay-5.png",
+    "description": "Community chapel upgrade in Aringay with retiling, repainting, and integrated electrical and compliance-ready lighting systems."
+  },
+
+  {
+    "project-name": "7 Eleven General",
+    "region": "Various",
+    "date-completed": "",
+    "assets-ref": "ladon-7eleven.json",
+    "asset-prime": "https://ik.imagekit.io/yt1tgrjzh/LADONCO/client-projects/ladon-7eleven/ladon-7eleven-3.jpg",
+    "description": "Ongoing retail infrastructure support for multiple 7-Eleven locations, including electrical, lighting, and compliance-ready fit-outs."
+  }
+]

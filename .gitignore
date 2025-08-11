@@ -1,0 +1,85 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules and builds
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Environment files
+.env
+.env.*
+
+# Editor config
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+
+# Visual Studio user-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio build results
+[Dd]ebug*/
+[Rr]elease*/
+x64/
+x86/
+[Oo]bj/
+[Bb]in/
+.vs/
+*.pdb
+*.cache
+*.log
+*.tmp
+*.dbmdl
+*.publishsettings
+
+# Test results
+TestResult.xml
+*.trx
+*.coverage
+*.coveragexml
+
+# NuGet packages
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+# Azure artifacts
+*.azurePubxml
+*.pubxml
+*.publishproj
+PublishScripts/
+*.build.csdef
+
+# ReSharper, Rider, and other IDE tools
+_ReSharper*/
+*.DotSettings.user
+.idea/
+
+# VS Code history
+.history/
+
+# Misc
+*.vsix
+*.cab
+*.msi
+*.msix
+*.msp
+*.msm
+
+# .gitignore
+.env
+.env.*
