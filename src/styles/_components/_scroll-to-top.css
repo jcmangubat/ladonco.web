@@ -1,6 +1,6 @@
 .scroll-to-top {
   position: fixed;
-  bottom: 2rem;
+  bottom: 8.5rem;
   right: 2rem;
   z-index: 9999;
   width: 3rem;
@@ -26,7 +26,8 @@
   transform: translateY(0) scale(1);
 }
 .scroll-to-top:hover {
-  background-color: var(--dark-color);
+  /* background-color: var(--dark-color); */
+  background-color: grey;
   transform: translateY(-0.25rem) scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
@@ -39,22 +40,30 @@
   transition: transform 0.3s ease;
   z-index: 1;
 }
-.scroll-to-top:hover svg { transform: translateY(-2px); }
+.scroll-to-top:hover svg {
+  transform: translateY(-2px);
+}
 
 /* Progress Ring */
-.scroll-to-top .progress-ring { pointer-events: none; }
+.scroll-to-top .progress-ring {
+  pointer-events: none;
+}
 .scroll-to-top .progress-ring__circle {
   transition: stroke-dashoffset 0.3s ease;
 }
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
-  .scroll-to-top { background-color: var(--primary-color); }
+  .scroll-to-top {
+    background-color: var(--primary-color);
+  }
   .scroll-to-top:hover {
     background-color: var(--light-color);
     color: var(--dark-color);
   }
-  .scroll-to-top:hover svg { color: var(--dark-color); }
+  .scroll-to-top:hover svg {
+    color: var(--dark-color);
+  }
 }
 
 /* Responsive */
