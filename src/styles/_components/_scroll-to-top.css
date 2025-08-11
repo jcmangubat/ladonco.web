@@ -1,0 +1,76 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem) scale(0.8);
+  border: none;
+  outline: none;
+}
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+.scroll-to-top:hover {
+  background-color: var(--dark-color);
+  transform: translateY(-0.25rem) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+.scroll-to-top:active {
+  transform: translateY(-0.1rem) scale(0.98);
+}
+.scroll-to-top svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+.scroll-to-top:hover svg { transform: translateY(-2px); }
+
+/* Progress Ring */
+.scroll-to-top .progress-ring { pointer-events: none; }
+.scroll-to-top .progress-ring__circle {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .scroll-to-top { background-color: var(--primary-color); }
+  .scroll-to-top:hover {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+  }
+  .scroll-to-top:hover svg { color: var(--dark-color); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    width: 2.5rem;
+    height: 2.5rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  .scroll-to-top svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  .scroll-to-top .progress-ring {
+    width: 40px;
+    height: 40px;
+  }
+}

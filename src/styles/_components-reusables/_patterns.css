@@ -1,0 +1,13 @@
+/* Left Pattern Line */
+.left-pattern {
+  position: relative;
+}
+.left-pattern::before {
+  content: "";
+  position: absolute;
+  width: 52px;
+  height: 2px;
+  top: 46%;
+  left: 0;
+  background-color: var(--primary-color);
+}

@@ -1,0 +1,28 @@
+/* Isotope Filtering */
+.isotope-container .item {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.isotope-container .item.hidden {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+.isotope-container .item.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Filter Buttons */
+.filter-button {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.filter-button:hover,
+.filter-button.active {
+  color: var(--primary-color);
+}

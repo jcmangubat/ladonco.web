@@ -1,0 +1,42 @@
+.teamMember {
+  transition: transform 0.3s ease;
+}
+.teamMember:hover {
+  transform: translateY(-8px);
+}
+
+.imageHolder {
+  overflow: hidden;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+}
+.teamMember:hover .imageHolder {
+  filter: grayscale(0);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.socialLinks {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.teamMember:hover .socialLinks {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.socialLinks li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.socialLinks li a:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}

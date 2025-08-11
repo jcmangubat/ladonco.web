@@ -1,0 +1,91 @@
+/* Contact Page Layout */
+.contact-page .banner-content { padding-left: 50px; }
+.contact-page .breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+.contact-page .breadcrumb-item { color: var(--light-color); }
+
+/* Headings */
+.contact-page .contact-info h3,
+.contact-page .inquiry-item h3 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 15px;
+}
+.contact-info h3::after,
+.inquiry-item h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.contact-page .element-title {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+/* Links & Address */
+.contact-page .contact-address p,
+.contact-page .contact-number p,
+.contact-page .email-address p { margin-bottom: 10px; }
+
+.contact-page .contact-number a,
+.contact-page .email-address a {
+  color: var(--dark-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.contact-page .contact-number a:hover,
+.contact-page .email-address a:hover {
+  color: var(--primary-color);
+}
+
+/* Social Icons */
+.contact-page .social-icon { font-size: 20px; transition: color 0.3s ease; }
+.contact-page .social-links a:hover .social-icon { color: var(--primary-color) !important; }
+
+/* Form */
+.contact-page .form-control {
+  border: 1px solid #ddd;
+  border-radius: 0;
+  padding: 10px 15px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+.contact-page .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+/* Button Arrow Effect */
+.contact-page .btn-arrow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.contact-page .btn-arrow:hover { color: var(--light-color); }
+.contact-page .btn-arrow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+.contact-page .btn-arrow:hover::after { width: 100%; }
+
+.contact-list .border-end { border-right: 1px solid #eee !important; }

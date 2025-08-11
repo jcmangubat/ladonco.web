@@ -1,0 +1,42 @@
+.masonry-grid {
+  display: flex;
+  margin-left: -1rem; /* gutter offset */
+  width: auto;
+}
+
+.masonry-column {
+  padding-left: 1rem; /* gutter size */
+  background-clip: padding-box;
+}
+
+.back-to {
+  all: unset;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  padding: 0;  
+  text-align: left;
+  display: inline;
+  transition: color 0.2s ease;
+  margin-bottom: 3rem;
+  font-weight: bold;
+}
+
+.back-to:hover,
+.back-to:focus {
+  color: var(--accent-color); /* Or any brand highlight */
+  text-decoration: underline;
+}
+
+.react-medium-image-zoom-overlay {
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.react-medium-image-zoom--zoomed img {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}

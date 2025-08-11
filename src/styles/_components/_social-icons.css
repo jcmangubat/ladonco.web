@@ -1,0 +1,93 @@
+/* General Social Icons Styles */
+.social-links ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.social-links li { margin: 0 0.25rem; }
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.social-links a:hover { transform: translateY(-3px); }
+.social-icon { transition: all 0.3s ease; }
+.social-links a:hover .social-icon { color: var(--light-color) !important; }
+
+/* Social Icons with Iconify */
+.social-links ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.social-links li { margin: 0 0.5rem; }
+.social-links a {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.social-links a:hover {
+  background-color: var(--primary-color);
+}
+.social-icon { color: var(--primary-color); }
+
+/* Header Social Icons */
+.header-social-icons .social-links a {
+  background-color: transparent;
+  width: 36px;
+  height: 36px;
+}
+.header-social-icons .social-links a:hover {
+  background-color: var(--primary-color);
+}
+
+/* Footer Social Icons */
+.footer-bottom .social-links a {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.footer-bottom .social-links a:hover {
+  background-color: var(--primary-color);
+}
+
+/* Offcanvas (Mobile Menu) Social Icons */
+.offcanvas .social-links {
+  margin-top: 1rem;
+  justify-content: center;
+}
+.offcanvas .social-links a {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.offcanvas .social-links a:hover {
+  background-color: var(--primary-color);
+}
+
+/* Navbar Scrolled Social Icons */
+.navbar.bg-black .social-icon { color: var(--primary-color); }
+.navbar.bg-black .social-links a:hover { background-color: var(--primary-color); }
+.navbar.bg-black .social-links a:hover .social-icon { color: var(--light-color); }
+
+/* Contact Page Specific Social Icons */
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.social-icon-link:hover {
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+.contact-social-links .social-icon-link {
+  background-color: var(--gray-color-200);
+  color: var(--dark-color);
+}
+.contact-social-links .social-icon-link:hover {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}

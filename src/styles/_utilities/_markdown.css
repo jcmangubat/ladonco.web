@@ -1,0 +1,8 @@
+/* Markdown Overrides */
+.md-container h2,
+.md-container h4 {
+  padding-left: unset;
+  margin-top: 35px;
+  margin-bottom: 25px;
+  font-size: larger;
+}

@@ -1,0 +1,63 @@
+/* Buttons - Base */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  color: #fff;
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Sizes */
+.btn-small { padding: 0.8em 1.8em; font-size: 0.85em; }
+.btn-medium { padding: 1.2em 2.7em; font-size: 1em; }
+.btn-large { padding: 0.8em 4.6em; font-size: 1.6em; }
+.btn-full {
+  display: block;
+  margin: 0.85em 0;
+  width: 100%;
+  letter-spacing: 0.12em;
+}
+
+/* Shapes */
+.btn-rounded { border-radius: 6px; }
+.btn-pill { border-radius: 2em; }
+
+/* Button Hover Effects */
+.btn-slide {
+  position: relative;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  padding: 18px 44px;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+.btn-slide span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+  font-weight: 900;
+}
+.btn-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+  z-index: 1;
+}
+.btn-slide.hover-slide-right:hover::before { width: 100%; }
+.btn-slide.hover-slide-right:hover span { color: var(--light-color); }
+
+/* Light & Dark Variants */
+.btn-slide.btn-light { background-color: var(--light-color); color: var(--dark-color); }
+.btn-slide.btn-light::before { background-color: var(--primary-color); }
+.btn-slide.btn-dark { background-color: var(--dark-color); color: var(--light-color); }
+.btn-slide.btn-dark::before { background-color: var(--primary-color); }

@@ -1,0 +1,24 @@
+/* Contact Page Responsive */
+@media (max-width: 768px) {
+  .contact-page .banner-content { padding-left: 20px; }
+  .contact-page .form-input { flex-direction: column; }
+  .contact-page .form-input .w-100 {
+    margin-right: 0 !important;
+    margin-bottom: 15px;
+  }
+  .contact-list .border-end {
+    border-right: none !important;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Footer Social Icons Responsive */
+@media (max-width: 768px) {
+  .social-links ul { justify-content: center; margin-top: 1rem; }
+  .footer-bottom .row {
+    flex-direction: column;
+    text-align: center;
+  }
+}

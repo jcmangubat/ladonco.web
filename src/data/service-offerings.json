@@ -1,0 +1,51 @@
+[
+  {
+    "idx": 1,
+    "icon": "🏗️",
+    "title": "Construction & Build",
+    "services": [
+      "Residential Construction",
+      "Commercial Building",
+      "New Construction Projects",
+      "Fit-out & Interior Works"
+    ],
+    "accent": "#fdd835"
+  },
+  {
+    "idx": 2,
+    "icon": "🔧",
+    "title": "Repair & Restoration",
+    "services": [
+      "Structural Renovation & Restoration",
+      "Heritage-Sensitive Restoration"
+    ],
+    "accent": "#ff7043"
+  },
+  {
+    "idx": 3,
+    "icon": "🌐",
+    "title": "Infrastructure & Systems",
+    "services": [
+      "Civil Infrastructure Development",
+      "IT Infrastructure & Network Systems"
+    ],
+    "accent": "#29b6f6"
+  },
+  {
+    "idx": 4,
+    "icon": "🎨",
+    "title": "Aesthetic Enhancements",
+    "services": ["Professional Painting", "Landscaping & Outdoor Improvements"],
+    "accent": "#ab47bc"
+  },
+  {
+    "idx": 5,
+    "icon": "🔁",
+    "title": "Maintenance & Support",
+    "services": [
+      "Facilities Maintenance & Upkeep",
+      "Technical Systems Maintenance"
+    ],
+    "accent": "#66bb6a"
+  }
+]

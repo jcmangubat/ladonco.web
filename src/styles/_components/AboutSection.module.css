@@ -1,0 +1,13 @@
+/* About section */
+
+@media (max-width: 1199px) {
+  .pt-desktop-8 {
+    padding-top: 0 !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pt-desktop-8 {
+    padding-top: 8rem;
+  }
+}

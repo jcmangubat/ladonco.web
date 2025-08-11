@@ -1,0 +1,56 @@
+.banner-title {
+  font-size: clamp(4rem, 5vw, 2rem, 1.5rem); /* responsive scaling */
+  /* font-size: clamp(1.5rem, 4vw, 2.5rem); */
+
+  line-height: 1.2;
+  color: var(--light-color); /* if needed */
+  max-width: 900px;
+  margin: 0 auto;
+  text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+}
+
+.banner-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.banner-title-half {
+  font-size: clamp(1rem, 2.5vw, 2rem); /* reduced by ~50% */
+  line-height: 1.3;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.overlay-circle {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* Let clicks pass through */
+  background: radial-gradient(
+    ellipse 70% 50% at center,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(50, 50, 50, 0.8) 80%
+  );
+}
+
+.fade-out-up {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+
+.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 600ms ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

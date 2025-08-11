@@ -1,0 +1,23 @@
+.marquee-carousel {
+  position: relative;
+  overflow: hidden;
+  background: transparent; /* customize */
+  padding: 20px 0;
+}
+
+.marquee-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  will-change: transform;
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  padding: var(--custom-padding, 0 40px) !important;
+  margin: var(--custom-margin, 0) !important;
+  height: var(--custom-height, auto) !important;
+  width: var(--custom-width, auto) !important;
+}
+
+

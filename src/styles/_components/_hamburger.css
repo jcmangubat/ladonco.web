@@ -1,0 +1,23 @@
+/* Default */
+.navbar-toggler .navbar-icon,
+.navbar-toggler .hamburger-line {
+  color: var(--light-color);
+}
+
+/* Scrolled */
+.navbar.bg-black .navbar-toggler .navbar-icon,
+.navbar.bg-black .navbar-toggler .hamburger-line {
+  color: var(--primary-color);
+}
+
+/* Hover */
+.navbar-toggler:hover .navbar-icon,
+.navbar-toggler:hover .hamburger-line {
+  color: yellow;
+  background-color: grey;
+}
+.navbar.bg-black .navbar-toggler:hover .navbar-icon,
+.navbar.bg-black .navbar-toggler:hover .hamburger-line {
+  color: var(--primary-color);
+  background-color: var(--primary-color);
+}
