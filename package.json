@@ -14,7 +14,7 @@
     "build:construction": "vite build --mode construction",
     "build:maintenance": "vite build --mode maintenance",
     "copy404": "copy dist\\index.html dist\\404.html",
-    "add-cname": "echo torrespestcontrol.ph > dist/CNAME",
+    "add-cname": "echo ladonco.ph > dist/CNAME",
     "deploy": "gh-pages -d dist",
     "deploy:live": "npm run build:live && npm run add-cname && npm run copy404 && npm run deploy",
     "deploy:construction": "npm run build:construction && npm run add-cname && npm run copy404 && npm run deploy",
