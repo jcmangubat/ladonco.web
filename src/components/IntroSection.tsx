@@ -269,17 +269,14 @@ const IntroSection: React.FC = () => {
           style={{ opacity: textOpacity }} // Apply text opacity here
         >
           <h1
-            className={`${styles["banner-title"]} light text-uppercase fw-bold`}
+            className={`${styles["banner-quote"]} light text-uppercase fw-bold`}
           >
             {from.quote}
-            <span className={styles["banner-title-half"]}>
+            <span className={styles["banner-quote-by"]}>
               — {from.attribution.name}, <i>{from.attribution.title}</i>
             </span>
           </h1>
-          <h3
-            className="mt-10"
-            style={{ color: "orange", textShadow: "rgb(0, 0, 0) 1px 1px 2px" }}
-          >
+          <h3 className={`${styles["banner-quote-ladon"]} mt-10`}>
             {from.caption}
           </h3>
           <a

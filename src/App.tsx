@@ -38,6 +38,7 @@ function App() {
           v7_startTransition: true,
           v7_relativeSplatPath: true,
         }}
+        // basename="/ladonco.web"
       >
         <Icons />
         <ScrollToHash />
