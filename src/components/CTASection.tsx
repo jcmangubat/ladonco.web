@@ -34,11 +34,11 @@ const AppLayout = () => {
               <p className="light mt-4">
                 If you have any projects in mind say hello at{" "}
                 <strong>
-                  <a href="mailto:contact@yourinfo.com">contact@yourinfo.com</a>
+                  <a href="mailto:contactus@ladonco.ph">contactus@ladonco.ph</a>
                 </strong>{" "}
                 or just call us at{" "}
                 <strong>
-                  <a href="tel:+111123423441232">+111 1234 2344 1232</a>
+                  <a href="tel:+639951225449">+63 (995) 122 5449</a>
                 </strong>
                 .
               </p>
