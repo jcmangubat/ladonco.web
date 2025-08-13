@@ -157,6 +157,7 @@ const IntroSection: React.FC = () => {
   const [toIndex, setToIndex] = useState(1);
   const [progress, setProgress] = useState(0);
   const [textOpacity, setTextOpacity] = useState(1); // New state for text opacity
+  const [currentBg, setCurrentBg] = useState(headlines[0].image);
 
   useEffect(() => {
     AOS.init({
@@ -208,24 +209,46 @@ const IntroSection: React.FC = () => {
           setTextOpacity(1 - fadeProgress);
         }
 
+        // if (elapsed >= PAUSE_DURATION) {
+        //   // Move to next slide and start transition
+        //   setFromIndex(toIndex);
+        //   setToIndex((prev) => (prev + 1) % headlines.length);
+
+        //   phase = "transition";
+        //   startTime = performance.now();
+        //   setProgress(0);
+
+        //   // Reset AOS animation classes on elements inside .banner-content
+        //   const bannerContent = document.querySelector(".banner-content");
+        //   if (bannerContent) {
+        //     bannerContent.querySelectorAll("[data-aos]").forEach((el) => {
+        //       el.classList.remove("aos-animate");
+        //       (el as HTMLElement).style.opacity = ""; // cast to HTMLElement to access style
+        //     });
+        //   }
+
+        //   // Then refresh AOS to re-detect and animate
+        //   AOS.refresh();
+        // }
+
         if (elapsed >= PAUSE_DURATION) {
-          // Move to next slide and start transition
           setFromIndex(toIndex);
-          setToIndex((prev) => (prev + 1) % headlines.length);
+          const nextIndex = (toIndex + 1) % headlines.length;
+          setToIndex(nextIndex);
+          setCurrentBg(headlines[nextIndex].image); // <-- update background to the one we just switched to
+
           phase = "transition";
           startTime = performance.now();
           setProgress(0);
 
-          // Reset AOS animation classes on elements inside .banner-content
+          // Reset AOS animation classes...
           const bannerContent = document.querySelector(".banner-content");
           if (bannerContent) {
             bannerContent.querySelectorAll("[data-aos]").forEach((el) => {
               el.classList.remove("aos-animate");
-              (el as HTMLElement).style.opacity = ""; // cast to HTMLElement to access style
+              (el as HTMLElement).style.opacity = "";
             });
           }
-
-          // Then refresh AOS to re-detect and animate
           AOS.refresh();
         }
       }
@@ -246,6 +269,10 @@ const IntroSection: React.FC = () => {
       className="position-relative overflow-hidden"
       style={{
         height: "100vh",
+        //backgroundImage: `url('${headlines[0].image}')`,
+        backgroundImage: `url('${currentBg}')`,
+        backgroundSize: "cover",
+        objectPosition: "center",
       }}
     >
       <div className="image-holder position-relative">
@@ -265,7 +292,7 @@ const IntroSection: React.FC = () => {
         }}
       >
         <div
-          className="banner-content text-center"
+          className="banner-content text-center mt-30"
           style={{ opacity: textOpacity }} // Apply text opacity here
         >
           <h1

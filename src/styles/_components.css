@@ -58,8 +58,8 @@
 .image-holder.position-relative canvas {
   width: max-content;
   /* height: auto !important; */
-  object-fit: cover;
-  object-position: center;
+  /* object-fit: cover;
+  object-position: center; */
 }
 
 /* phones */
