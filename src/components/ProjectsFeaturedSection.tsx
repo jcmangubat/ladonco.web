@@ -84,6 +84,7 @@ const ProjectsFeaturedSection: React.FC = () => {
           <a
             href="/projects"
             className="btn-slide btn-medium btn-dark hover-slide-right text-uppercase mb-5"
+            draggable={false}
           >
             <span>See More Projects...</span>
           </a>

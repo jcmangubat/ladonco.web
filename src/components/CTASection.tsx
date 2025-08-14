@@ -45,6 +45,7 @@ const AppLayout = () => {
               <a
                 href="/contact"
                 className="btn-slide btn-medium btn-light hover-slide-right text-uppercase mt-5"
+                draggable={false}
               >
                 <span>Get a Free Quote</span>
               </a>

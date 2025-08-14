@@ -266,7 +266,7 @@ const IntroSection: React.FC = () => {
   return (
     <section
       id="intro"
-      className="position-relative overflow-hidden"
+      className="position-relative overflow-hidden unselectable"
       style={{
         height: "100vh",
         //backgroundImage: `url('${headlines[0].image}')`,
@@ -275,7 +275,7 @@ const IntroSection: React.FC = () => {
         objectPosition: "center",
       }}
     >
-      <div className="image-holder position-relative">
+      <div className={`${styles["image-holder"]} position-relative`}>
         <BannerTransition from={from.image} to={to.image} progress={progress} />
       </div>
       <div style={{ width: "100%", height: "100vh" }}>
@@ -309,6 +309,7 @@ const IntroSection: React.FC = () => {
           <a
             href="#projects"
             className="btn-slide btn-medium btn-light hover-slide-right text-uppercase mt-5 d-inline-block"
+            draggable={false}
           >
             <span>View our projects</span>
           </a>

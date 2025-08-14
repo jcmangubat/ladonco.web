@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useScrollNav } from "@/hooks/use-scroll-nav";
 import SocialIcons from "./SocialIcons";
 import "@/styles/_components/_hamburger.css";
 import styles from "@/styles/_components/Header.module.css";
+import { useTogglerVisible } from "./ui/useTogglerVisible";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,10 +14,14 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const isTogglerVisible = useTogglerVisible();
+
   return (
-    <header id="header" className={styles["site-header"]}>
+    <header id="header" className={`${styles["site-header"]} unselectable`}>
       <nav
-        className={`navbar navbar-expand-lg p-1 container-fluid position-fixed ${
+        className={`navbar navbar-expand-lg p-1 container-fluid ${
+          isTogglerVisible && isScrolled ? "" : "position-fixed"
+        } ${
           isScrolled ? styles["bg-navbar-scrolled"] : styles["bg-navbar-def"]
         }`}
       >
@@ -45,6 +50,7 @@ const Header = () => {
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.8)", // 👈 Raised effect
                 transition: "box-shadow 0.3s ease",
               }}
+              draggable={false}
             />
           </Link>
 

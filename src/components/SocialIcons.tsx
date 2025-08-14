@@ -1,5 +1,5 @@
-import React from 'react';
-import { Icon } from '@iconify/react';
+import React from "react";
+import { Icon } from "@iconify/react";
 
 interface SocialIconsProps {
   className?: string;
@@ -10,23 +10,29 @@ interface SocialIconsProps {
   size?: number;
 }
 
-const SocialIcons: React.FC<SocialIconsProps> = ({ 
+const SocialIcons: React.FC<SocialIconsProps> = ({
   className = "",
   iconColor = "var(--primary-color)",
   hoverColor = "var(--light-color)",
   bgColor = "transparent",
   hoverBgColor = "var(--primary-color)",
-  size = 24
+  size = 24,
 }) => {
   return (
-    <div className={`social-links ${className}`}>
+    <div className={`social-links ${className} unselectable`}>
       <ul className="list-unstyled d-flex gap-3">
         <li>
-          <a href="https://www.facebook.com/profile.php?id=100094691762231" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <Icon 
-              icon="ri:facebook-fill" 
-              className="social-icon facebook" 
-              width={size} 
+          <a
+            href="https://www.facebook.com/profile.php?id=100094691762231"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            draggable={false}
+          >
+            <Icon
+              icon="ri:facebook-fill"
+              className="social-icon facebook"
+              width={size}
               height={size}
               style={{ color: iconColor }}
             />
@@ -55,22 +61,32 @@ const SocialIcons: React.FC<SocialIconsProps> = ({
           </a>
         </li> */}
         <li>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <Icon 
-              icon="ri:youtube-fill" 
-              className="social-icon youtube" 
-              width={size} 
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <Icon
+              icon="ri:youtube-fill"
+              className="social-icon youtube"
+              width={size}
               height={size}
               style={{ color: iconColor }}
             />
           </a>
         </li>
         <li>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <Icon 
-              icon="ri:linkedin-fill" 
-              className="social-icon linkedin" 
-              width={size} 
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <Icon
+              icon="ri:linkedin-fill"
+              className="social-icon linkedin"
+              width={size}
               height={size}
               style={{ color: iconColor }}
             />

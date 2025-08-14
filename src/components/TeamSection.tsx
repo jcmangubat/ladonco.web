@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 //import { useLibraries } from "@/hooks/use-libraries";
-import "aos/dist/aos.css"; 
+import "aos/dist/aos.css";
 import styles from "@/styles/_components/Team.module.css";
 
 const TeamSection = () => {
@@ -53,7 +53,8 @@ const TeamSection = () => {
                   <img
                     src={m.image}
                     alt={m.name}
-                    className="img-fluid rounded-circle"
+                    className="img-fluid rounded-circle unselectable"
+                    draggable={false}
                   />
                 </div>
                 <h3 className="fs-5 text-uppercase mb-1">{m.name}</h3>

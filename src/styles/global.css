@@ -16,6 +16,7 @@
 @import '_utilities/_layout.css';
 @import '_utilities/_responsiveness.css';
 @import '_utilities/_markdown.css';
+
 /* 
 @font-face {
   font-family: 'Open Sans';
@@ -60,6 +61,7 @@
   border: none;
   cursor: pointer;
   padding: 18px 44px;
+  user-select: none;
 }
 
 .btn-slide.hover-slide-right::before {
@@ -196,3 +198,9 @@ button.filter-button.active {
   opacity: 1;
 }
 
+.unselectable {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+}

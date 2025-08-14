@@ -19,13 +19,14 @@ const ServicesSection = () => {
             .toLowerCase()
             .replace(/ & | /g, "-")}.png`}
           alt={group.title}
-          className="img-fluid rounded mb-3"
+          className="img-fluid rounded mb-3 unselectable"
           style={{
             maxHeight: "180px",
             objectFit: "cover",
             width: "100%",
             boxShadow: "0 0 10px rgba(0,0,0,0.4)",
           }}
+          draggable={false}
         />
         <h3
           className="fs-4 text-uppercase mb-3"

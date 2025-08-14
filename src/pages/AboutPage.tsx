@@ -8,7 +8,6 @@ import AchievementsSection from "@/components/AchievementsSection";
 import ReviewsSection from "@/components/ReviewsSection";
 
 const AboutPage = () => {
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -33,7 +32,7 @@ const AboutPage = () => {
                       <img
                         src="assets/images/ladon-founder.png"
                         alt="Charlemagne Reyes"
-                        className="img-fluid"
+                        className="img-fluid unselectable"
                         style={{
                           backgroundColor: "white",
                           padding: "75px",
@@ -41,6 +40,7 @@ const AboutPage = () => {
                           overflow: "hidden",
                           display: "inline-block",
                         }}
+                        draggable={false}
                       />
                     </div>
                   </div>
@@ -103,29 +103,7 @@ const AboutPage = () => {
                         <h2 className="left-pattern">Our Services</h2>
                         <h3>Choose us for best services</h3>
                       </div>
-                      {/* <p>
-                        <b className="fw-bold">
-                          {" "}
-                          Why Choose Ladon Construction?{" "}
-                          <i>We build with heart, not just hammers.</i>{" "}
-                        </b>
-                      </p>
-                      <p>
-                        {" "}
-                        When you choose Ladon, you’re not just hiring a
-                        contractor—you’re partnering with a team that listens,
-                        shows up, and treats your project like it matters.
-                        Because it does.{" "}
-                      </p>
-                      <p>
-                        {" "}
-                        Whether it’s a family home, a growing storefront, or a
-                        community space, we bring craftsmanship, care, and
-                        commitment to every nail and detail. No shortcuts. No
-                        guesswork. Just honest work, clear communication, and a
-                        crew that’s with you every step of the way.{" "}
-                      </p>
-                      <p>Let’s build something that lasts—together.</p> */}
+
                       <p>
                         <strong className="fw-bold">
                           Why Choose Ladon Construction?{" "}
@@ -153,7 +131,8 @@ const AboutPage = () => {
                       <img
                         src="/assets/images/post-item2.jpg"
                         alt="about-us"
-                        className="img-fluid"
+                        className="img-fluid unselectable"
+                        draggable={false}
                       />
                     </div>
                   </div>

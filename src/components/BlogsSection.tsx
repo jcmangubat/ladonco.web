@@ -102,13 +102,13 @@ const BlogsSection = () => {
                     <img
                       src={`/assets/images/${post.image}`}
                       alt={post.title}
-                      className="img-fluid"
+                      className="img-fluid unselectable"
                     />
                     <div className={styles.imageOverlay}></div>
 
                     {/* Category Badge */}
                     <div
-                      className={styles.categoryBadge}
+                      className={`${styles.categoryBadge} unselectable`}
                       style={{
                         backgroundColor: getCategoryColor(post.category),
                       }}
@@ -120,7 +120,7 @@ const BlogsSection = () => {
                     </div>
 
                     {/* Read Time */}
-                    <div className={styles.readTime}>
+                    <div className={`${styles.readTime} unselectable`}>
                       <span>⏱️</span> {post.readTime}
                     </div>
                   </div>
@@ -148,7 +148,7 @@ const BlogsSection = () => {
                     </div>
 
                     {/* Read More Button */}
-                    <div className={styles.readMoreContainer}>
+                    <div className={`${styles.readMoreContainer} unselectable`}>
                       <a
                         href={`/blog/${post.id}`}
                         className={styles.readMoreButton}
@@ -175,7 +175,8 @@ const BlogsSection = () => {
           <div style={{ textAlign: "center" }}>
             <a
               href="/articles"
-              className="btn-slide btn-medium btn-dark hover-slide-right text-uppercase mb-5"
+              className="btn-slide btn-medium btn-dark hover-slide-right text-uppercase mb-5 unselectable"
+              draggable={false}
             >
               <span>See More Articles...</span>
             </a>

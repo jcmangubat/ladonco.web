@@ -31,11 +31,12 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({
     <section className={styles.grid}>
       {filteredProjects.map((project, index) => (
         <div key={index} className={styles.tile}>
-          <div className={styles.imageWrapper}>
+          <div className={`${styles.imageWrapper} unselectable`}>
             <img
               src={project.assetPrime}
               alt={project.projectName}
-              className={styles.image}
+              className={`${styles.image} unselectable`}
+              draggable={false}
             />
             <span className={styles.badge}>Featured</span>
           </div>

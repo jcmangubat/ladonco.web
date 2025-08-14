@@ -1,3 +1,4 @@
+import { fdatasync } from "fs";
 import styles from "../styles/_components/AboutSection.module.css";
 
 const AboutSection = () => {
@@ -14,7 +15,8 @@ const AboutSection = () => {
               <img
                 src="/assets/images/ladonco-spirit.png"
                 alt="LadonCo Spirit"
-                className="img-fluid w-100 mb-4"
+                className="img-fluid w-100 mb-4 unselectable"
+                draggable={false}
               />
             </div>
           </div>

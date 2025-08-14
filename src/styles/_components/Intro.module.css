@@ -1,18 +1,23 @@
+.image-holder {
+  position: relative;
+  height: 100%;
+}
+
 .banner-quote {
   font-size: clamp(2rem, 5vw, 4rem);
   /* line-height: 1.2; */
   color: var(--light-color); /* if needed */
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: 0 auto;
   text-shadow: rgb(0, 0, 0) 1px 1px 2px;
-  padding-left: 130px;
-  padding-right: 130px;
+  padding-left: 320px;
+  padding-right: 320px;
 }
 
 .banner-quote-by {
   font-size: clamp(1rem, 2.5vw, 2rem);
   line-height: 1.3;
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: 0 auto;
 }
 
@@ -70,24 +75,50 @@
 
 @media screen and (max-width: 767px) {
   /* small tablets and phones in landscape */
+  .banner-quote {
+    font-size: clamp(2.5rem, 1.5vw, 2rem);
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
 }
 @media screen and (max-width: 991px) {
   /* tablets */
   .banner-quote-ladon {
     font-size: clamp(1rem, 3vw, 2rem);
   }
+
+  .banner-quote {
+    font-size: clamp(2.5rem, 2.5vw, 2rem);
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+  }
 }
+
 @media screen and (max-width: 1199px) {
   /* laptops */
   .banner-quote {
-    font-size: clamp(2.5rem, 2.5vw, 2rem);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    padding-left: 120px !important;
+    padding-right: 120px !important;
   }
   .banner-quote-by {
     font-size: clamp(1.5rem, 2.5vw, 2rem);
+    padding-left: 120px !important;
+    padding-right: 120px !important;
   }
 
   .banner-quote-ladon {
-    font-size: clamp(2.5rem, 2.5vw, 2rem);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    padding-left: 120px !important;
+    padding-right: 120px !important;
+  }
+}
+
+@media screen and (max-width: 1336px) {
+  /* desktops */
+  .banner-quote {
+    padding-left: 180px;
+    padding-right: 180px;
   }
 }
 @media screen and (max-width: 1599px) {
@@ -95,4 +126,8 @@
 }
 @media screen and (min-width: 1600px) {
   /* ultra large */
+  .banner-quote {
+    padding-left: 220px;
+    padding-right: 220px;
+  }
 }
