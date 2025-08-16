@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import AppLayout from "@/components/AppLayout";
-import PageIntroBanner from "@/components/PageIntroSection";
+import PageIntroBanner from "@/components/ui/PageWrapper";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { getServiceCategories } from "@/data/service-Offerings";

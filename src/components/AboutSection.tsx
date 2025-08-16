@@ -3,7 +3,7 @@ import styles from "../styles/_components/AboutSection.module.css";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="padding-large bg-gray-200">
+    <section id="about" className="padding-medium bg-gray-200">
       <div className="container">
         <div className="row">
           <div className="col-lg-6">

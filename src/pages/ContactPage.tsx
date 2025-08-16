@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react";
 
 import AppLayout from "@/components/AppLayout";
 import Button from "@/components/Button";
-import PageIntroBanner from "@/components/PageIntroSection";
+import PageIntroBanner from "@/components/ui/PageWrapper";
 import { MessageCircle, Phone, Space } from "lucide-react";
 import { color } from "framer-motion";
 import LocationMap from "@/components/LocationMap";

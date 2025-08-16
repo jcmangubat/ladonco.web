@@ -11,25 +11,25 @@ const TeamSection = () => {
       id: 1,
       name: "Engr. Dennis Lungtad, CE",
       position: "Project Manager",
-      image: "/assets/images/dennis-lungtad.png",
+      image: "/assets/images/team/dennis-lungtad.png",
     },
     {
       id: 2,
       name: "Mr. Buds Bayola",
       position: "Area Manager / Marketing Specialist",
-      image: "/assets/images/budz-gayola.png",
+      image: "/assets/images/team/budz-gayola.png",
     },
     {
       id: 3,
       name: "Mr. Rizalde Perez",
       position: "Senior Procurement Manager",
-      image: "/assets/images/rizalde-perez.png",
+      image: "/assets/images/team/rizalde-perez.png",
     },
     {
       id: 4,
       name: "Engr. Marcelo Chiong, EE",
       position: "Area Manager – Visayas Area",
-      image: "/assets/images/marcelo-chiong.png",
+      image: "/assets/images/team/marcelo-chiong.png",
     },
   ];
 

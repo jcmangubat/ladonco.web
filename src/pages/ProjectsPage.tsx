@@ -1,5 +1,5 @@
 import AppLayout from "@/components/AppLayout";
-import PageIntroBanner from "@/components/PageIntroSection";
+import PageIntroBanner from "@/components/ui/PageWrapper";
 import React, { useEffect, useState } from "react";
 import ProjectsGrid from "@/components/ui/projects-grid";
 import { useNavigate } from "react-router-dom";

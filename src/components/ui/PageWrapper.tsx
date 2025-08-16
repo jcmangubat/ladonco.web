@@ -1,13 +1,13 @@
 import React from "react";
 
-interface PageIntroBannerProps {
+interface PageWrapperProps {
   backgroundImageUrl: string;
   title: string;
   pageName: string;
   children?: React.ReactNode;
 }
 
-const PageIntroBanner: React.FC<PageIntroBannerProps> = ({
+const PageWrapper: React.FC<PageWrapperProps> = ({
   backgroundImageUrl,
   title,
   pageName,
@@ -19,6 +19,7 @@ const PageIntroBanner: React.FC<PageIntroBannerProps> = ({
         id="intro"
         style={{
           background: `url(${backgroundImageUrl})`,
+          backgroundImage: `linear-gradient(rgba(8, 37, 83, 0.97), rgba(94, 98, 145, 0.47)), url("${backgroundImageUrl}")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -52,4 +53,4 @@ const PageIntroBanner: React.FC<PageIntroBannerProps> = ({
   );
 };
 
-export default PageIntroBanner;
+export default PageWrapper;

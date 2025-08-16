@@ -83,7 +83,7 @@ const ProjectsFeaturedSection: React.FC = () => {
         <div style={{ textAlign: "center" }}>
           <a
             href="/projects"
-            className="btn-slide btn-medium btn-dark hover-slide-right text-uppercase mb-5"
+            className="btn-slide btn-medium btn-dark hover-slide-right text-uppercase"
             draggable={false}
           >
             <span>See More Projects...</span>

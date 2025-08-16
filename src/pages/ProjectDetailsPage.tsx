@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import AppLayout from "@/components/AppLayout";
-import PageIntroBanner from "@/components/PageIntroSection";
+import PageIntroBanner from "@/components/ui/PageWrapper";
 
 import Masonry from "react-masonry-css";
 import Zoom from "react-medium-image-zoom";

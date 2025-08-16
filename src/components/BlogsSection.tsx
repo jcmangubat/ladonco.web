@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { jarallax } from "jarallax";
+
 import styles from "@/styles/_components/BlogSection.module.css";
 
 const BlogsSection = () => {
@@ -7,22 +9,22 @@ const BlogsSection = () => {
   const blogPosts = [
     {
       id: 1,
-      title: "Top 10 mindblowing architecture buildings in the world",
-      date: "Feb 1, 2023",
-      category: "Buildings",
-      image: "post-item1.jpg",
+      title: "Creating Comfort: 10 Homy Design Ideas That Soothe the Soul",
+      date: "Aug 17, 2025",
+      category: "Home Living",
+      image: "lcs-banner-13.jpg",
       excerpt:
-        "It's normal to feel anxiety, worry and grief any time you're diagnosed with a condition that's certainly true...",
-      readTime: "5 min read",
-      author: "Alex Johnson",
-      tags: ["architecture", "design", "landmarks"],
+        "In a world that moves fast, your space should slow you down. These homy design ideas blend warmth, simplicity, and emotional ease—perfect for anyone seeking comfort and clarity at home.",
+      readTime: "6 min read",
+      author: "Charles Reyes",
+      tags: ["homy", "interiors", "emotional design", "slow living"],
     },
     {
       id: 2,
       title: "Amazing technologies that helped to create creative works",
       date: "Feb 12, 2023",
       category: "Construction",
-      image: "post-item2.jpg",
+      image: "ladon-drone.jpeg",
       excerpt:
         "It's normal to feel anxiety, worry and grief any time you're diagnosed with a condition that's certainly true...",
       readTime: "7 min read",
@@ -31,15 +33,23 @@ const BlogsSection = () => {
     },
     {
       id: 3,
-      title: "100 best construction companies around the world",
-      date: "Feb 28, 2023", // Fixed invalid date
-      category: "Company",
-      image: "post-item3.jpg",
+      title:
+        "Building Forward: Challenges and Innovations in Philippine Construction",
+      date: "Aug 17, 2025",
+      category: "Infrastructure & Innovation",
+      image: "post43.jpg",
       excerpt:
-        "It's normal to feel anxiety, worry and grief any time you're diagnosed with a condition that's certainly true...",
-      readTime: "10 min read",
-      author: "David Chen",
-      tags: ["companies", "ranking", "global"],
+        "From labor shortages and red tape to modular housing and smart cities, the Philippine construction industry is evolving fast. This article explores the sector’s biggest hurdles—like corruption and supply chain delays—alongside its boldest innovations, including BIM, 3D printing, and green building practices.",
+      readTime: "8 min read",
+      author: "Ladon Infrastructure Desk",
+      tags: [
+        "Philippines",
+        "construction",
+        "innovation",
+        "urban planning",
+        "BIM",
+        "green building",
+      ],
     },
   ];
 
@@ -71,17 +81,51 @@ const BlogsSection = () => {
     }
   };
 
+  useEffect(() => {
+    jarallax(document.querySelectorAll(".jarallax"), {
+      speed: 0.5,
+    });
+  }, []);
+
   return (
     <section
       id="latest-blog"
-      className={`padding-large ${styles.blogsSection}`}
+      className={`jarallax padding-small ${styles["blogs-section"]}`}
     >
-      <div className="container">
+      <img
+        className="jarallax-img"
+        src="/assets/images/intro/bg-image4.jpg"
+        alt=""
+      />
+      <div
+        className={styles["blogs-section-overlay"]}
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(18, 77, 170, 0.6), rgb(54, 57, 87))",
+          zIndex: 1,
+        }}
+      ></div>
+      <div className="container" style={{ zIndex: 2, position: "inherit" }}>
         <div className="row">
-          <div className="section-header text-uppercase text-center mb-5">
+          {/* <div className="section-header text-uppercase text-center mb-5">
             <h2 className="left-pattern">News Articles</h2>
-            <h3 className="mt-2">Read Latest Articles</h3>
+            <h3 className="mt-2"></h3>
             <div className={`${styles.sectionUnderline} mx-auto`}></div>
+          </div> */}
+
+          <div
+            //className="section-header offset-lg-2"
+            className="section-header col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1"
+            style={{
+              textShadow: "rgb(0, 0, 0) 1px 1px 2px",
+            }}
+          >
+            <h2 className={`${styles.light} text-uppercase mb-3 left-pattern`}>
+              What’s New
+            </h2>
+            <h3 className={`${styles.light} text-uppercase`}>
+              Explore the Latest in Innovation and Strategy
+            </h3>
           </div>
 
           <div className="post-grid d-flex flex-wrap justify-content-center mt-5">
@@ -100,7 +144,7 @@ const BlogsSection = () => {
                   {/* Image Container with Overlay */}
                   <div className={styles.imageContainer}>
                     <img
-                      src={`/assets/images/${post.image}`}
+                      src={`/assets/images/posts/${post.image}`}
                       alt={post.title}
                       className="img-fluid unselectable"
                     />
@@ -174,7 +218,7 @@ const BlogsSection = () => {
 
           <div style={{ textAlign: "center" }}>
             <a
-              href="/articles"
+              href="/blogs"
               className="btn-slide btn-medium btn-dark hover-slide-right text-uppercase mb-5 unselectable"
               draggable={false}
             >

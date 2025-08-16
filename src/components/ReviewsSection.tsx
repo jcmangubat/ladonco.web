@@ -210,7 +210,7 @@ const ReviewsSection = () => {
   return (
     <section
       id="testimonials"
-      className={`${styles.testimonials} padding-large jarallax position-relative overflow-hidden`}
+      className={`${styles.testimonials} padding-small jarallax position-relative overflow-hidden`}
       style={{
         backgroundImage: "url('assets/images/bg-image2.jpg')",
         width: "100%",

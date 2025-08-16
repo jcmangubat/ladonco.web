@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { jarallax } from "jarallax";
 import { getServiceOfferings } from "@/data/service-offerings";
+import styles from "../styles/_components/ServicesSection.module.css";
 
 const ServicesSection = () => {
   const topGroups = getServiceOfferings(1, 2, 3);
@@ -10,7 +13,7 @@ const ServicesSection = () => {
       <div
         className="p-4 rounded shadow-sm h-100"
         style={{
-          background: `linear-gradient(to bottom right, rgba(30,30,30,0.85), rgba(50,50,50,0.85))`,
+          background: `linear-gradient(to right bottom, rgba(78, 74, 104, 0.85), rgba(50, 50, 50, 0.85))`,
           borderLeft: `4px solid ${group.accent}`,
         }}
       >
@@ -57,6 +60,7 @@ const ServicesSection = () => {
                     id="service-link"
                     to={`/servicedetails/${srvcGrp}/${slug}`}
                     className="text-decoration-none"
+                    style={{ textShadow: "rgb(0, 0, 0) 1px 1px 2px" }}
                   >
                     {service}
                   </Link>
@@ -69,19 +73,37 @@ const ServicesSection = () => {
     </div>
   );
 
+  useEffect(() => {
+    jarallax(document.querySelectorAll(".jarallax"), {
+      speed: 0.5,
+    });
+  }, []);
+
   return (
+    // <section
+    //   id="services"
+    //   className={`jarallax py-5 ${styles["services-section"]}`}
+    // >
     <section
       id="services"
-      className="jarallax py-5"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.6)), url('/assets/images/bg-image1.jpg')",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className={`jarallax py-5 ${styles["services-section"]}`}
+      data-jarallax
+      data-speed="0.5"
     >
-      <div className="container">
+      <img
+        className="jarallax-img"
+        src="/assets/images/intro/bg-image4.jpg"
+        alt=""
+      />
+      <div
+        className={styles["services-section-overlay"]}
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(18, 77, 170, 0.6), rgb(54, 57, 87))",
+          zIndex: 1,
+        }}
+      ></div>
+      <div className="container" style={{ zIndex: 2, position: "inherit" }}>
         <div className="col-lg-6">
           <div
             className="section-header"
@@ -99,7 +121,13 @@ const ServicesSection = () => {
           </div>
         </div>
 
-        <div className="col-lg-6 mb-5" style={{ color: "whitesmoke" }}>
+        <div
+          className="col-lg-6 mb-5"
+          style={{
+            color: "whitesmoke",
+            textShadow: "rgb(0, 0, 0) 1px 1px 2px",
+          }}
+        >
           <p>
             That’s why each service we offer is designed to be modular,
             transparent, and tailored to what matters most—your timeline, your

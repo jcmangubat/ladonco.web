@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import AppLayout from "@/components/AppLayout";
-import PageIntroBanner from "@/components/PageIntroSection";
+import PageIntroBanner from "@/components/ui/PageWrapper";
 
 import TeamSection from "@/components/TeamSection";
 import AchievementsSection from "@/components/AchievementsSection";
@@ -16,7 +16,7 @@ const AboutPage = () => {
     <div className="overflow-hidden">
       <AppLayout>
         <PageIntroBanner
-          backgroundImageUrl="/assets/images/intro/bg-image4.jpg"
+          backgroundImageUrl="/assets/images/team/team-01.jpg"
           title="About Us"
           pageName="About"
         >
@@ -30,7 +30,7 @@ const AboutPage = () => {
                   <div className="col-md-5">
                     <div className="image-holder">
                       <img
-                        src="assets/images/ladon-founder.png"
+                        src="assets/images/team/ladon-founder.png"
                         alt="Charlemagne Reyes"
                         className="img-fluid unselectable"
                         style={{

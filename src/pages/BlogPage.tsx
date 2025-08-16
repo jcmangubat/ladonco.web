@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AppLayout from "@/components/AppLayout";
 import styles from "../styles/_components/BlogPage.module.css";
-import PageIntroBanner from "@/components/PageIntroSection";
+import PageIntroBanner from "@/components/ui/PageWrapper";
 
 const BlogPage = () => {
   useEffect(() => {
@@ -14,22 +14,22 @@ const BlogPage = () => {
   const blogPosts = [
     {
       id: 1,
-      title: "Top 10 mindblowing architecture buildings in the world",
-      date: "Feb 1, 2023",
-      category: "Buildings",
-      image: "post44.jpg",
+      title: "Creating Comfort: 10 Homy Design Ideas That Soothe the Soul",
+      date: "Aug 17, 2025",
+      category: "Home Living",
+      image: "lcs-banner-13.jpg",
       excerpt:
-        "It's normal to feel anxiety, worry and grief any time you're diagnosed with a condition that's certainly true...",
-      readTime: "5 min read",
-      author: "Alex Johnson",
-      tags: ["architecture", "design", "landmarks"],
+        "In a world that moves fast, your space should slow you down. These homy design ideas blend warmth, simplicity, and emotional ease—perfect for anyone seeking comfort and clarity at home.",
+      readTime: "6 min read",
+      author: "Charles Reyes",
+      tags: ["homy", "interiors", "emotional design", "slow living"],
     },
     {
       id: 2,
       title: "Amazing technologies that helped to create creative works",
       date: "Feb 12, 2023",
       category: "Construction",
-      image: "post49.jpg",
+      image: "ladon-drone.jpeg",
       excerpt:
         "It's normal to feel anxiety, worry and grief any time you're diagnosed with a condition that's certainly true...",
       readTime: "7 min read",
@@ -38,15 +38,23 @@ const BlogPage = () => {
     },
     {
       id: 3,
-      title: "100 best construction companies around the Philippines",
-      date: "Feb 28, 2023", // Fixed invalid date
-      category: "Company",
-      image: "post40.jpg",
+      title:
+        "Building Forward: Challenges and Innovations in Philippine Construction",
+      date: "Aug 17, 2025",
+      category: "Infrastructure & Innovation",
+      image: "post43.jpg",
       excerpt:
-        "It's normal to feel anxiety, worry and grief any time you're diagnosed with a condition that's certainly true...",
-      readTime: "10 min read",
-      author: "David Chen",
-      tags: ["companies", "ranking", "philippines"],
+        "From labor shortages and red tape to modular housing and smart cities, the Philippine construction industry is evolving fast. This article explores the sector’s biggest hurdles—like corruption and supply chain delays—alongside its boldest innovations, including BIM, 3D printing, and green building practices.",
+      readTime: "8 min read",
+      author: "Ladon Infrastructure Desk",
+      tags: [
+        "Philippines",
+        "construction",
+        "innovation",
+        "urban planning",
+        "BIM",
+        "green building",
+      ],
     },
     {
       id: 4,

@@ -14,7 +14,7 @@ const AppLayout = () => {
   return (
     <section
         id="contact"
-        className="jarallax d-flex align-items-center padding-large"
+        className="d-flex align-items-center"
         style={{
           backgroundImage: `url("/assets/images/intro/bg-image12.jpg")`,
           width: "100%",
@@ -22,8 +22,8 @@ const AppLayout = () => {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center center",
         }}
-        data-aos="fade-up"
-        data-aos-duration="2000"
+        // data-aos="fade-up"
+        // data-aos-duration="2000"
       >
         <div className="container">
           <div className="row justify-content-center">

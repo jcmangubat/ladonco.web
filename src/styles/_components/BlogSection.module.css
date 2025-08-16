@@ -1,6 +1,21 @@
-.blogsSection {
-  background-color: #f8f9fa;
-  position: relative;
+
+.blogs-section {
+  /* background-color: #f8f9fa;
+  position: relative; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.blogs-section-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none; /* so clicks go through to content */
 }
 
 /* Section Header Styling */
@@ -245,4 +260,8 @@
   .excerpt {
     font-size: 14px;
   }
+}
+
+.light {
+  color: var(--light-color) !important;
 }
