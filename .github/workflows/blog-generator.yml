@@ -64,7 +64,7 @@ jobs:
         id: prep
         run: |
           DATE=$(date +%F)
-          RAW_TOPIC="${{ steps.pick-topic.outputs.TOPIC }}"
+          RAW_TOPIC="Community engagement: Filipino cultural center builds for Buwan ng Wika"
           SLUG=$(echo "$RAW_TOPIC" \
             | tr '[:upper:]' '[:lower:]' \
             | sed -E 's/[^a-z0-9]+/-/g' \
@@ -75,12 +75,13 @@ jobs:
             SLUG="post-$DATE"
           fi
 
-          PROMPT="${{ env.AIPROMPT_TEMPLATE }}$RAW_TOPIC"
+          PROMPT="$RAW_TOPIC"
+
           ENCODED=$(python3 - <<EOF
           import urllib.parse, sys
-          print(urllib.parse.quote(sys.argv[1]))
+          print(urllib.parse.quote(sys.stdin.read().strip()))
           EOF
-          "$PROMPT")
+          <<< "$PROMPT")
 
           echo "DATE=$DATE" >> $GITHUB_OUTPUT
           echo "SLUG=$SLUG" >> $GITHUB_OUTPUT
