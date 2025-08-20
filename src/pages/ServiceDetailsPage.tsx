@@ -5,7 +5,7 @@ import AppLayout from "@/components/AppLayout";
 import PageIntroBanner from "@/components/ui/PageWrapper";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import { getServiceCategories } from "@/data/service-Offerings";
+import { getServiceCategories } from "@/data/service-offerings";
 
 const ServiceDetailsPage = () => {
   const { srvcGrp, slug } = useParams();
