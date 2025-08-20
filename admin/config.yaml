@@ -1,0 +1,6 @@
+backend:
+  name: github
+  repo: jcmangubat/ladonco.web
+  branch: main
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
