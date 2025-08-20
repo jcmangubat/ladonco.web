@@ -83,3 +83,7 @@ _ReSharper*/
 # .gitignore
 .env
 .env.*
+
+# Developer Notes
+# This file is used to ignore files that should not be tracked by Git.
+APE-Notes.txt
