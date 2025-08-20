@@ -25,31 +25,15 @@ const Header = () => {
           isScrolled ? styles["bg-navbar-scrolled"] : styles["bg-navbar-def"]
         }`}
       >
-        <div className="container-lg">
+        <div className="container-lg mt-2 mb-2">
           <Link
-            className="navbar-brand"
+            className={styles["navbar-brand"]}
             to="/"
-            style={{
-              backgroundColor: "white",
-              padding: "4px",
-              borderRadius: "8px",
-              overflow: "hidden",
-              display: "inline-block",
-              minWidth: "210px",
-            }}
           >
             <img
-              src="/assets/images/main-logo.png"
-              className="logo"
+              src="/assets/images/lcs-banner.png"
+              className={styles['navbar-brand-logo']}
               alt="LadonCo Header Logo"
-              style={{
-                width: "200px",
-                height: "65px",
-                objectFit: "contain",
-                borderRadius: "6px",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.8)", // 👈 Raised effect
-                transition: "box-shadow 0.3s ease",
-              }}
               draggable={false}
             />
           </Link>

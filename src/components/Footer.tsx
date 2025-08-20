@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="col-lg-3 col-md-6 col-sm-6 pb-3">
             <div className={styles.footerSection}>
               <img
-                src="/assets/images/main-logo.png"
+                src="/assets/images/lcs-banner.png"
                 className={`${styles.logo} unselectable`}
                 draggable={false}
                 alt="LadonCo Footer Logo"
@@ -105,22 +105,22 @@ const Footer = () => {
               <h4 className={styles.footerHeading}>Contact Us</h4>
               <ul className={styles.contactList}>
                 <li className={styles.contactItem}>
-                  <span className={styles.contactIcon}>📍</span>
+                  {/* <span className={styles.contactIcon}>📍</span> */}
                   <span>
                     Purok 8B Tiera Nueva Brgy. Tacunan, Davao City, Philippines
                     8000
                   </span>
                 </li>
                 <li className={styles.contactItem}>
-                  <span className={styles.contactIcon}>📞</span>
+                  {/* <span className={styles.contactIcon}>📞</span> */}
                   <span>+63 (82) 308 0715</span>
                 </li>
                 <li className={styles.contactItem}>
-                  <span className={styles.contactIcon}>📱</span>
+                  {/* <span className={styles.contactIcon}>📱</span> */}
                   <span>+63 (995) 122 5449</span>
                 </li>
                 <li className={styles.contactItem}>
-                  <span className={styles.contactIcon}>✉️</span>
+                  {/* <span className={styles.contactIcon}>✉️</span> */}
                   <a
                     href="mailto:contactus@ladonco.ph"
                     className={styles.footerLink}

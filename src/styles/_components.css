@@ -42,3 +42,13 @@
   /* color: var(--primary-color)!important; */
   color: #ffc107;
 }
+
+@media screen and (max-width: 599px) {
+  .banner-title {
+    font-size: 4em;
+  }
+}
+
+.widget-visible {
+  bottom: 150px !important;
+}

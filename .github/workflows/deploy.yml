@@ -1,0 +1,60 @@
+name: Deploy Vite React App to GitHub Pages
+
+on:
+  push:
+    branches: [main] # Trigger deploy on push to main
+
+permissions:
+  contents: write
+  
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env: 
+      VITE_SITE_MODE : ${{ secrets.VITE_SITE_MODE }}
+      VITE_HERO_RESPECT_THEME : ${{ secrets.VITE_HERO_RESPECT_THEME }}
+      VITE_GOOGLE_MAPS_API_KEY : ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
+      VITE_EMAILJS_SERVICE_ID : ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+      VITE_EMAILJS_TEMPLATE_ID : ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+      VITE_EMAILJS_PUBLIC_KEY : ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+      VITE_RECAPTCHA_SITE_KEY : ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
+      VITE_RECAPTCHA_SECRET_KEY : ${{ secrets.VITE_RECAPTCHA_SECRET_KEY }}
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create .env file
+        run: |
+          echo "VITE_SITE_MODE=${VITE_SITE_MODE}" >> .env
+          echo "VITE_HERO_RESPECT_THEME=${VITE_HERO_RESPECT_THEME}" >> .env
+          echo "VITE_GOOGLE_MAPS_API_KEY=${VITE_GOOGLE_MAPS_API_KEY}" >> .env
+          echo "VITE_EMAILJS_SERVICE_ID=${VITE_EMAILJS_SERVICE_ID}" >> .env
+          echo "VITE_EMAILJS_TEMPLATE_ID=${VITE_EMAILJS_TEMPLATE_ID}" >> .env
+          echo "VITE_EMAILJS_PUBLIC_KEY=${VITE_EMAILJS_PUBLIC_KEY}" >> .env
+          echo "VITE_RECAPTCHA_SITE_KEY=${VITE_RECAPTCHA_SITE_KEY}" >> .env
+          echo "VITE_RECAPTCHA_SECRET_KEY=${VITE_RECAPTCHA_SECRET_KEY}" >> .env
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Copy index.html to 404.html
+        run: cp dist/index.html dist/404.html
+
+      - name: Add CNAME file
+        run: echo torrespestcontrol.ph > dist/CNAME
+        
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

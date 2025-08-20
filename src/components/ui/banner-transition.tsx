@@ -7,6 +7,8 @@ type Props = {
   progress: number; // 0..1
   width?: number;
   height?: number;
+  display?: string;
+  canvasClassName?:string;
 };
 
 const vertexSrc = `
@@ -61,6 +63,8 @@ const BannerTransition: React.FC<Props> = ({
   progress,
   width,
   height,
+  display,
+  canvasClassName
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const glRef = useRef<WebGLRenderingContext | null>(null);
@@ -106,12 +110,8 @@ const BannerTransition: React.FC<Props> = ({
     gl.bufferData(
       gl.ARRAY_BUFFER,
       new Float32Array([
-        -1, -1, 0, 0,
-         1, -1, 1, 0,
-        -1,  1, 0, 1,
-        -1,  1, 0, 1,
-         1, -1, 1, 0,
-         1,  1, 1, 1,
+        -1, -1, 0, 0, 1, -1, 1, 0, -1, 1, 0, 1, -1, 1, 0, 1, 1, -1, 1, 0, 1, 1,
+        1, 1,
       ]),
       gl.STATIC_DRAW
     );
@@ -188,15 +188,51 @@ const BannerTransition: React.FC<Props> = ({
 
   if (!webglSupported) {
     return (
-      <div style={{ position: "relative", width: width ?? "100%", height: height ?? "100%" }}>
-        <img src={from} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 1 - progress }} />
-        <img src={to} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: progress }} />
+      <div
+        style={{
+          position: "relative",
+          width: width ?? "100%",
+          height: height ?? "100%",
+          display: display ?? "block",
+        }}
+      >
+        <img
+          src={from}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 1 - progress,
+          }}
+        />
+        <img
+          src={to}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: progress,
+          }}
+        />
       </div>
     );
   }
 
-  return <canvas ref={canvasRef} style={{ width: width ?? "100%", height: height ?? "100%", display: "block" }} />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className={canvasClassName ?? undefined}
+      style={{
+        width: width ?? "100%",
+        height: height ?? "100%",
+        display: display ?? "block"
+      }}
+    />
+  );
 };
-
 
 export default BannerTransition;

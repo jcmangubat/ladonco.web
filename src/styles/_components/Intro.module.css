@@ -3,30 +3,30 @@
   height: 100%;
 }
 
+.banner-content {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 .banner-quote {
   font-size: clamp(2rem, 5vw, 4rem);
-  /* line-height: 1.2; */
   color: var(--light-color); /* if needed */
-  /* max-width: 900px; */
   margin: 0 auto;
   text-shadow: rgb(0, 0, 0) 1px 1px 2px;
-  padding-left: 320px;
-  padding-right: 320px;
+  /* padding-left: 320px;
+  padding-right: 320px; */
 }
 
 .banner-quote-by {
   font-size: clamp(1rem, 2.5vw, 2rem);
   line-height: 1.3;
-  /* max-width: 900px; */
   margin: 0 auto;
 }
 
 .banner-quote-ladon {
-  font-size: clamp(3rem, 5vw, 4rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   color: var(--primary-color);
   text-shadow: rgb(0, 0, 0) 1px 1px 2px;
-  padding-left: 130px;
-  padding-right: 130px;
 }
 
 .overlay-circle {
@@ -35,7 +35,7 @@
   pointer-events: none; /* Let clicks pass through */
   background: radial-gradient(
     ellipse 70% 50% at center,
-    rgba(0, 0, 0, 0) 40%,
+    rgba(6, 27, 188, 0) 40%,
     rgba(50, 50, 50, 0.8) 80%
   );
 }
@@ -63,71 +63,58 @@
   }
 }
 
+.banner-transition-canvas {
+  width: 210vh !important;
+  height: 100% !important;
+  display: flex !important;
+  filter: "sepia(.3) brightness(0.6) saturate(1) contrast(0.8)!important"
+  
+}
+
 /* phones */
 @media screen and (max-width: 599px) {
-}
-
-/* @media (max-width: 1220px) and (max-height: 561px) {
-  h1._banner-quote_ci1dk_1.light.text-uppercase.fw-bold {
-    font-size: clamp(2rem, 3vw, 4rem) !important;
-  }
-} */
-
-@media screen and (max-width: 767px) {
-  /* small tablets and phones in landscape */
   .banner-quote {
-    font-size: clamp(2.5rem, 1.5vw, 2rem);
-    padding-left: 30px !important;
-    padding-right: 30px !important;
-  }
-}
-@media screen and (max-width: 991px) {
-  /* tablets */
-  .banner-quote-ladon {
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: 1rem;
   }
 
-  .banner-quote {
-    font-size: clamp(2.5rem, 2.5vw, 2rem);
-    padding-left: 80px !important;
-    padding-right: 80px !important;
-  }
-}
-
-@media screen and (max-width: 1199px) {
-  /* laptops */
-  .banner-quote {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    padding-left: 120px !important;
-    padding-right: 120px !important;
-  }
   .banner-quote-by {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    padding-left: 120px !important;
-    padding-right: 120px !important;
+    font-size: 1rem;
   }
 
   .banner-quote-ladon {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    padding-left: 120px !important;
-    padding-right: 120px !important;
+    font-size: 1rem;
   }
-}
 
-@media screen and (max-width: 1336px) {
-  /* desktops */
-  .banner-quote {
-    padding-left: 180px;
-    padding-right: 180px;
+  .btn-hero-cta {
+    padding: 8px;
+  }
+  .btn-hero-span {
+    font-size: 0.85rem;
   }
 }
-@media screen and (max-width: 1599px) {
-  /* desktops */
+/* Phones */
+
+/* Phones */
+@media (max-width: 560px) {
 }
-@media screen and (min-width: 1600px) {
-  /* ultra large */
-  .banner-quote {
-    padding-left: 220px;
-    padding-right: 220px;
-  }
-}
+/* Phones */
+
+/* Phones */
+@media (max-width: 639px) {
+} /* Phones */
+
+/* Small tablets */
+@media (max-width: 767px) {
+} /* Small tablets */
+
+/* Tablets & small laptops */
+@media (max-width: 1023px) {
+} /* Tablets & small laptops */
+
+/* Laptops & desktops */
+@media (max-width: 1279px) {
+} /* Laptops & desktops */
+
+/* Large desktops */
+@media (max-width: 1535px) {
+} /* Large desktops */

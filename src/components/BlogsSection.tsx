@@ -94,7 +94,7 @@ const BlogsSection = () => {
     >
       <img
         className="jarallax-img"
-        src="/assets/images/intro/bg-image4.jpg"
+        src="/assets/images/intro/bg-image4.png"
         alt=""
       />
       <div

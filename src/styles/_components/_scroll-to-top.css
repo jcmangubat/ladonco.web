@@ -68,7 +68,7 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .scroll-to-top {
+  /* .scroll-to-top {
     width: 2.5rem;
     height: 2.5rem;
     bottom: 1.5rem;
@@ -81,5 +81,8 @@
   .scroll-to-top .progress-ring {
     width: 40px;
     height: 40px;
-  }
+  } */
 }
+
+@media (max-width: 767px) {
+} /* Small tablets */

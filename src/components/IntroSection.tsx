@@ -270,18 +270,27 @@ const IntroSection: React.FC = () => {
       style={{
         height: "100vh",
         //backgroundImage: `url('${headlines[0].image}')`,
-        backgroundImage: `url('${currentBg}')`,
-        backgroundSize: "cover",
-        objectPosition: "center",
+        //backgroundImage: `url('${currentBg}')`,
+        // backgroundSize: "cover",
+        // objectPosition: "center",
       }}
     >
-      <div className={`${styles["image-holder"]} position-relative`}>
-        <BannerTransition from={from.image} to={to.image} progress={progress} />
+      <div
+        className={`${styles["image-holder"]} position-relative`}
+        style={{
+          backgroundImage: `url('${currentBg}')`,
+          backgroundSize: "cover",
+          objectPosition: "center",
+        }}
+      >
+        <BannerTransition from={from.image} to={to.image} progress={progress} canvasClassName={styles['banner-transition-canvas']} />
       </div>
+
       <div style={{ width: "100%", height: "100vh" }}>
         <canvas id="glsl-canvas" />
         <div className={styles["overlay-circle"]} />
       </div>
+
       <div
         className="position-absolute top-50 start-50 translate-middle w-100 banner-texts"
         style={{
@@ -292,7 +301,7 @@ const IntroSection: React.FC = () => {
         }}
       >
         <div
-          className="banner-content text-center mt-30"
+          className={`${styles["banner-content"]} text-center mt-30`}
           style={{ opacity: textOpacity }} // Apply text opacity here
         >
           <h1
@@ -308,10 +317,10 @@ const IntroSection: React.FC = () => {
           </h3>
           <a
             href="#projects"
-            className="btn-slide btn-medium btn-light hover-slide-right text-uppercase mt-5 d-inline-block"
+            className={`${styles["btn-hero-cta"]} btn-slide btn-medium btn-light hover-slide-right text-uppercase mt-5 d-inline-block`}
             draggable={false}
           >
-            <span>View our projects</span>
+            <span className={styles["btn-hero-span"]}>View our projects</span>
           </a>
         </div>
       </div>

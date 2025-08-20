@@ -11,6 +11,13 @@ import { MessageCircle, Phone, Space } from "lucide-react";
 import { color } from "framer-motion";
 import LocationMap from "@/components/LocationMap";
 
+import { getServiceCategories } from "../data/service-offerings";
+
+const serviceCategories = getServiceCategories();
+const serviceOptions = serviceCategories.flatMap(
+  (category) => category.services
+);
+
 const ContactPage = () => {
   const contacts = [
     {
@@ -51,19 +58,6 @@ const ContactPage = () => {
                     care and ends in lasting craftsmanship.
                   </p>
                   <div className="page-content">
-                    {/* <div className="col-md-10 rounded-lg overflow-hidden shadow-lg mb-10">
-                      <iframe
-                        title="Ladon Construction Services Office Location"
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d482.34!2d125.50972697558147!3d7.111942382772615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1753104680166!5m2!1sen!2sph"
-                        width="100%"
-                        height="250"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                      />
-                    </div> */}
-
                     {contacts.map((contact) => (
                       <div className="col-md-6">
                         <div className="content-box my-5">
@@ -208,6 +202,7 @@ const ContactPage = () => {
                         />
                       </div>
                     </div>
+
                     <div className="col-lg-12 mb-3">
                       <label className="mb-2 fs-6 text-dark">
                         Phone Number
@@ -219,9 +214,27 @@ const ContactPage = () => {
                         className="form-control shadow-none px-3 py-2"
                       />
                     </div>
+
+                    <div className="col-lg-12 mb-3">
+                      <label className="mb-2 fs-6 text-dark">
+                        Service Type (Optional)
+                      </label>
+                      <select
+                        name="service"
+                        className="form-control shadow-none px-3 py-2"
+                        defaultValue=""
+                      >
+                        <option value="">Just an inquiry / Not sure</option>
+                        {serviceOptions.map((service) => (
+                          <option key={service.slug} value={service.name}>
+                            {service.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
                     <div className="col-lg-12 mb-3">
                       <label className="mb-2 fs-6 text-dark">Subject</label>
-
                       <input
                         type="text"
                         name="subject"
@@ -229,6 +242,7 @@ const ContactPage = () => {
                         className="form-control shadow-none px-3 py-2"
                       />
                     </div>
+
                     <div className="col-lg-12 mb-3">
                       <label className="mb-2 fs-6 text-dark">
                         Your Message*
@@ -241,6 +255,56 @@ const ContactPage = () => {
                         required
                       ></textarea>
                     </div>
+
+                    <div className="col-lg-12 mb-3">
+                      <label className="mb-2 fs-6 text-dark">
+                        Preferred Days to Call
+                      </label>
+                      <div className="d-flex flex-wrap gap-3">
+                        {[
+                          "Monday",
+                          "Tuesday",
+                          "Wednesday",
+                          "Thursday",
+                          "Friday",
+                          "Saturday",
+                        ].map((day) => (
+                          <div key={day} className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              name="preferred_days[]"
+                              value={day}
+                              id={`day-${day}`}
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor={`day-${day}`}
+                            >
+                              {day}
+                            </label>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="col-lg-12 mb-3">
+                      <label className="mb-2 fs-6 text-dark">
+                        Preferred Time of Day
+                      </label>
+                      <select
+                        name="preferred_time"
+                        className="form-control shadow-none px-3 py-2"
+                        defaultValue=""
+                      >
+                        <option value="">No preference</option>
+                        <option value="morning">Morning (8AM–11AM)</option>
+                        <option value="midday">Midday (11AM–2PM)</option>
+                        <option value="afternoon">Afternoon (2PM–5PM)</option>
+                        <option value="evening">Evening (5PM–7PM)</option>
+                      </select>
+                    </div>
+
                     <div className="d-grid">
                       <Button
                         type="submit"
@@ -259,76 +323,6 @@ const ContactPage = () => {
               <LocationMap />
             </div>
           </section>
-
-          {/* <section className="contact-list pb-5 my-5">
-            <div className="container" data-aos="fade-up">
-              <div className="row">
-                <div className="col-md-4 border-end">
-                  <div className="content-box ps-3 my-4">
-                    <h5 className="element-title text-uppercase mb-3">USA</h5>
-                    <div className="contact-address">
-                      <p>730 Glenstone Ave 65802, Springfield, US</p>
-                    </div>
-                    <div className="contact-number">
-                      <p>
-                        <a href="tel:+123987321">+123 987 321</a>,{" "}
-                        <a href="tel:+123123654">+123 123 654</a>
-                      </p>
-                    </div>
-                    <div className="email-address">
-                      <p>
-                        <a href="mailto:boldiz@yourcompany.com">
-                          boldiz@yourcompany.com
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-4 border-end">
-                  <div className="content-box ps-3 my-4">
-                    <h5 className="element-title text-uppercase mb-3">
-                      France
-                    </h5>
-                    <div className="contact-address">
-                      <p>13 Rue Montmartre 75001, Paris, France</p>
-                    </div>
-                    <div className="contact-number">
-                      <p>
-                        <a href="#">+123 987 321 ,</a>
-                        <a href="#">+123 123 654</a>
-                      </p>
-                    </div>
-                    <div className="email-address">
-                      <p>
-                        <a href="#"> Boldiz@yourcompany.com</a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-4">
-                  <div className="content-box ps-3 my-4">
-                    <h5 className="element-title text-uppercase mb-3">
-                      Office
-                    </h5>
-                    <div className="contact-address">
-                      <p>18 Chapel Brow PR25 3NE, Leyland, UK</p>
-                    </div>
-                    <div className="contact-number">
-                      <p>
-                        <a href="#">+123 987 321 ,</a>
-                        <a href="#">+123 123 654</a>
-                      </p>
-                    </div>
-                    <div className="email-address">
-                      <p>
-                        <a href="#"> Boldiz@yourcompany.com</a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section> */}
         </PageIntroBanner>
       </AppLayout>
     </div>
