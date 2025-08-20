@@ -96,6 +96,10 @@ jobs:
 
       - name: Generate article Markdown
         run: |
+          # Ensure the directory exists
+          mkdir -p src/pages/posts
+          
+          # Create the Markdown file with front matter
           OUT="src/pages/posts/${{ steps.prep.outputs.DATE }}-${{ steps.prep.outputs.SLUG }}.md"
           cat <<EOF > $OUT
           ---
