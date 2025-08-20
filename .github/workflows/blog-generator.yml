@@ -1,139 +1,35 @@
-# File: .github/workflows/blog-generator.yml
-name: "AI Blog Generator"
+name: Weekly Article Generation
 
 on:
   schedule:
-    - cron: '0 0 * * 1'    # Every Monday at 00:00 UTC
-  workflow_dispatch:      # Allows manual trigger
-
-permissions:
-  contents: write         # Needed to commit & push new files
+    - cron: '0 0 * * 1'   # Every Monday at 00:00 UTC
+  workflow_dispatch:       # Manual trigger option
 
 jobs:
-  generate-blog:
+  build:
     runs-on: ubuntu-latest
-    env:
-      ARTICLE_PROVIDER: ${{ secrets.VITE_ARTICLE_PROVIDER }}
-      AIPROMPT_TEMPLATE: ${{ secrets.VITE_ARTICLE_AIPROMPT_TEMPLATE }}
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install jq
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate weekly article
+        run: node scripts/generateArticle.cjs
+        env:
+          VITE_ARTICLE_AIPROMPT_TEMPLATE: ${{ secrets.VITE_ARTICLE_AIPROMPT_TEMPLATE }}
+          VITE_ARTICLE_PROVIDER: ${{ secrets.VITE_ARTICLE_PROVIDER }}
+
+      - name: Commit and push generated article
         run: |
-          sudo apt-get update
-          sudo apt-get install -y jq
-
-      - name: Pick topic for this month (no duplicates)
-        id: pick-topic
-        run: |
-          MONTH_NAME=$(date +%B)
-          YEAR=$(date +%Y)
-          USED_FILE=".github/data/used-$YEAR-$MONTH_NAME.txt"
-          mkdir -p .github/data
-
-          # Get candidate topics (month-specific or fallback to principal-keys)
-          CANDIDATES=$(jq -r --arg m "$MONTH_NAME" \
-            '.["monthly-topics"][$m] // .["principal-keys"] | .[]?' \
-            config/article-topics.json)
-
-          # Remove already-used topics (if any)
-          if [ -f "$USED_FILE" ]; then
-            for t in $(cat "$USED_FILE"); do
-              CANDIDATES=$(echo "$CANDIDATES" | grep -vxF "$t" || true)
-            done
-          fi
-
-          # If candidates are empty, reset to principal-keys
-          if [ -z "$CANDIDATES" ]; then
-            echo "⚠️ No unused topics left for $MONTH_NAME. Falling back to principal-keys."
-            CANDIDATES=$(jq -r '.["principal-keys"] | .[]?' config/article-topics.json)
-            echo "" > "$USED_FILE" # reset file
-          fi
-
-          # Pick random topic
-          TOPIC=$(echo "$CANDIDATES" | shuf -n1)
-
-          # Save as used
-          echo "$TOPIC" >> "$USED_FILE"
-
-          echo "TOPIC=$TOPIC" >> $GITHUB_OUTPUT
-
-      - name: Prepare filename, slug, and prompt
-        id: prep
-        run: |
-          DATE=$(date +%F)
-          RAW_TOPIC="${{ steps.pick-topic.outputs.TOPIC }}"
-
-          SLUG=$(echo "$RAW_TOPIC" \
-            | tr '[:upper:]' '[:lower:]' \
-            | sed -E 's/[^a-z0-9]+/-/g' \
-            | sed -E 's/^-+|-+$//g')
-
-          # fallback if slug becomes empty
-          if [ -z "$SLUG" ]; then
-            SLUG="post-$DATE"
-          fi
-
-          PROMPT="${{ env.AIPROMPT_TEMPLATE }}$RAW_TOPIC"
-
-          ENCODED=$(python3 - <<EOF
-          import urllib.parse, sys
-          print(urllib.parse.quote(sys.stdin.read().strip()))
-          EOF
-          <<< "$PROMPT")
-
-          echo "DATE=$DATE" >> $GITHUB_OUTPUT
-          echo "SLUG=$SLUG" >> $GITHUB_OUTPUT
-          echo "PROMPT_ENC=$ENCODED" >> $GITHUB_OUTPUT
-          echo "TOPIC=$RAW_TOPIC" >> $GITHUB_OUTPUT
-
-      - name: Preview chosen topic & slug
-        run: |
-          echo "📝 Topic: ${{ steps.prep.outputs.TOPIC }}"
-          echo "📅 Date:  ${{ steps.prep.outputs.DATE }}"
-          echo "🔗 Slug:  ${{ steps.prep.outputs.SLUG }}"
-
-      - name: Generate article Markdown        
-        run: |
-          mkdir -p src/pages/posts
-          
-          OUT="src/pages/posts/${{ steps.prep.outputs.DATE }}-${{ steps.prep.outputs.SLUG }}.md"
-
-          # cat <<EOF > $OUT
-          # ---
-          # layout: ../layouts/BlogLayout.astro
-          # title: "${{ steps.prep.outputs.TOPIC }}"
-          # date: ${{ steps.prep.outputs.DATE }}
-          # coverImage: "https://image.pollinations.ai/prompt/${{ steps.prep.outputs.PROMPT_ENC }}"
-          # tags: [AI, Pollinations, Blog]
-          # ---
-          # EOF
-
-          # Build the provider URL
-          URL="${{ env.ARTICLE_PROVIDER }}${{ steps.prep.outputs.PROMPT_ENC }}"
-
-          # Echo it for debugging
-          echo "🔗 Fetching from: $URL"
-
-          # Fetch article content safely (follow redirects)
-          CONTENT=$(curl -s -L -f "$URL" || echo "⚠️ ERROR: Failed to fetch content from provider.")
-
-          # Check if content is empty
-          if [ -z "$CONTENT" ]; then
-            CONTENT="⚠️ ERROR: No content generated. Please check the provider or prompt."
-          fi
-
-          echo $CONTENT >> $OUT
-
-          # echo -e "\n\n![Cover Image](https://image.pollinations.ai/prompt/${{ steps.prep.outputs.PROMPT_ENC }})" >> $OUT
-          # echo -e "\n\n*This post was generated by an AI model using the Pollinations API.*" >> $OUT
-
-      - name: Commit and push new post
-        run: |
-          git config --local user.name "GitHub Action"
-          git config --local user.email "action@github.com"
-          git add src/pages/posts/${{ steps.prep.outputs.DATE }}-${{ steps.prep.outputs.SLUG }}.md .github/data/
-          git commit -m "chore: add AI-generated post for ${{ steps.prep.outputs.DATE }}" || echo "No changes to commit"
-          git push || echo "No changes to push"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/pages/posts/*.md
+          git commit -m "chore: weekly article update [skip ci]" || echo "No changes"
+          git push

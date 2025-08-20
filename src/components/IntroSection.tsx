@@ -17,7 +17,7 @@ const headlines = [
       title: "Founder",
     },
     caption: "25+ years of delivering structures that stand the test of time.",
-    image: "lcs-banner-02.jpg",
+    image: "lcs-banner-27.jpg",
   },
   {
     id: 2,
@@ -134,7 +134,7 @@ const headlines = [
       title: "Founder",
     },
     caption: "At Ladon, every detail reflects our commitment to trust.",
-    image: "lcs-banner-27.jpg",
+    image: "lcs-banner-02.jpg",
   },
   {
     id: 13,
