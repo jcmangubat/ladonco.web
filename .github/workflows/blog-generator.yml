@@ -101,18 +101,24 @@ jobs:
           
           OUT="src/pages/posts/${{ steps.prep.outputs.DATE }}-${{ steps.prep.outputs.SLUG }}.md"
 
-          cat <<EOF > $OUT
-          ---
-          layout: ../layouts/BlogLayout.astro
-          title: "${{ steps.prep.outputs.TOPIC }}"
-          date: ${{ steps.prep.outputs.DATE }}
-          coverImage: "https://image.pollinations.ai/prompt/${{ steps.prep.outputs.PROMPT_ENC }}"
-          tags: [AI, Pollinations, Blog]
-          ---
-          EOF
+          # cat <<EOF > $OUT
+          # ---
+          # layout: ../layouts/BlogLayout.astro
+          # title: "${{ steps.prep.outputs.TOPIC }}"
+          # date: ${{ steps.prep.outputs.DATE }}
+          # coverImage: "https://image.pollinations.ai/prompt/${{ steps.prep.outputs.PROMPT_ENC }}"
+          # tags: [AI, Pollinations, Blog]
+          # ---
+          # EOF
+
+          # Build the provider URL
+          URL="${{ env.ARTICLE_PROVIDER }}${{ steps.prep.outputs.PROMPT_ENC }}"
+
+          # Echo it for debugging
+          echo "🔗 Fetching from: $URL"
 
           # Fetch article content safely (follow redirects)
-          CONTENT=$(curl -s -L -f "${{ env.ARTICLE_PROVIDER }}${{ steps.prep.outputs.PROMPT_ENC }}" || echo "⚠️ ERROR: Failed to fetch content from provider.")
+          CONTENT=$(curl -s -L -f "$URL" || echo "⚠️ ERROR: Failed to fetch content from provider.")
 
           # Check if content is empty
           if [ -z "$CONTENT" ]; then
