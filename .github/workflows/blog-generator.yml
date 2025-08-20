@@ -64,7 +64,8 @@ jobs:
         id: prep
         run: |
           DATE=$(date +%F)
-          RAW_TOPIC="Community engagement: Filipino cultural center builds for Buwan ng Wika"
+          RAW_TOPIC="${{ steps.pick-topic.outputs.TOPIC }}"
+
           SLUG=$(echo "$RAW_TOPIC" \
             | tr '[:upper:]' '[:lower:]' \
             | sed -E 's/[^a-z0-9]+/-/g' \
@@ -75,7 +76,7 @@ jobs:
             SLUG="post-$DATE"
           fi
 
-          PROMPT="$RAW_TOPIC"
+          PROMPT="${{ env.AIPROMPT_TEMPLATE }}$RAW_TOPIC"
 
           ENCODED=$(python3 - <<EOF
           import urllib.parse, sys
