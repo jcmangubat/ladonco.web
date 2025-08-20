@@ -44,7 +44,7 @@ async function run() {
   }
 
   // Check existing posts
-  const postsDir = path.join(__dirname, "../src/pages/posts");
+  const postsDir = path.join(__dirname, "../src/contents/posts");
   const existingFiles = fs.existsSync(postsDir) ? fs.readdirSync(postsDir) : [];
 
   // Pick unused topic
