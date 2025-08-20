@@ -51,7 +51,7 @@ jobs:
         run: cp dist/index.html dist/404.html
 
       - name: Add CNAME file
-        run: echo torrespestcontrol.ph > dist/CNAME
+        run: echo ladonco.ph > dist/CNAME
         
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
