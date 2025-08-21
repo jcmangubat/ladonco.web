@@ -47,7 +47,12 @@
   object-fit: contain;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
-  transition: box-shadow 0.3s ease;
+  /* transition: width 0.5s ease, box-shadow 0.3s ease; */
+  transition: all 0.5s ease;
+  will-change: width, box-shadow;
+  background-color: white;
+  display: block;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 599px) {
@@ -56,7 +61,7 @@
   }
 
   .navbar-brand-logo {
-    width: 140px;
-    height: 60px;
+    width: 160px;
+    height: 55px;
   }
 }
