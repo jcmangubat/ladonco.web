@@ -124,7 +124,7 @@ const headlines = [
   },
   {
     id: 12,
-    quote: "Each brick laid is a promise kept.",
+    quote: "Each brick laid is a promise kept. Every foundation laid is a promise honored.",
     attribution: {
       name: "Charles Reyes",
       title: "Founder",
