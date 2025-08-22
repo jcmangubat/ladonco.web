@@ -107,11 +107,11 @@
 }
 
 /* in BlogDetailsPage.module.css */
-.markdown-responsive p:first-of-type::first-letter {
-  font-size: 80px;
+.md-container.markdown-responsive > p:first-of-type::first-letter {
+  font-size: 100px;
   font-weight: bolder;
-  padding-top: 2px;
-  float: left; /* optional, creates drop-cap effect */
+  padding-top: 5px;
+  float: left; 
   line-height: 1;
   margin-right: 8px;
 }
