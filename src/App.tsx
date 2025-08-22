@@ -14,6 +14,7 @@ import Icons from "@/components/Icons";
 import ServiceDetailsPage from "./pages/ServiceDetailsPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
+import BlogDetailsPage from "./pages/BlogDetailsPage";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/blogs/:slug" element={<BlogDetailsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:slug" element={<ProjectDetailsPage />} />

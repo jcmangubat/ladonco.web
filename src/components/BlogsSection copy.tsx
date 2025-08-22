@@ -1,64 +1,81 @@
 import { useEffect, useState } from "react";
 import { jarallax } from "jarallax";
-import styles from "@/styles/_components/BlogSection.module.css";
-import blogCatalog from "@/contents/blogs-catalog.json";
-import { slugify } from "@/lib/utils";
 
-// Base64 placeholder image
-const placeholderImage =
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg==";
+import styles from "@/styles/_components/BlogSection.module.css";
 
 const BlogsSection = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  // Sort by date (newest first) and take only top 3
-  const sortedPosts = [...blogCatalog]
-    .sort((a, b) => {
-      // Convert date strings to timestamps for comparison
-      const dateA = new Date(a.date).getTime();
-      const dateB = new Date(b.date).getTime();
-      return dateB - dateA; // Sort in descending order (newest first)
-    })
-    .slice(0, 3);
+  const blogPosts = [
+    {
+      id: 1,
+      title: "Creating Comfort: 10 Homy Design Ideas That Soothe the Soul",
+      date: "Aug 17, 2025",
+      category: "Home Living",
+      image: "lcs-banner-13.jpg",
+      excerpt:
+        "In a world that moves fast, your space should slow you down. These homy design ideas blend warmth, simplicity, and emotional ease—perfect for anyone seeking comfort and clarity at home.",
+      readTime: "6 min read",
+      author: "Charles Reyes",
+      tags: ["homy", "interiors", "emotional design", "slow living"],
+    },
+    {
+      id: 2,
+      title: "Amazing technologies that helped to create creative works",
+      date: "Feb 12, 2023",
+      category: "Construction",
+      image: "ladon-drone.jpeg",
+      excerpt:
+        "It's normal to feel anxiety, worry and grief any time you're diagnosed with a condition that's certainly true...",
+      readTime: "7 min read",
+      author: "Maria Garcia",
+      tags: ["technology", "innovation", "construction"],
+    },
+    {
+      id: 3,
+      title:
+        "Building Forward: Challenges and Innovations in Philippine Construction",
+      date: "Aug 17, 2025",
+      category: "Infrastructure & Innovation",
+      image: "post43.jpg",
+      excerpt:
+        "From labor shortages and red tape to modular housing and smart cities, the Philippine construction industry is evolving fast. This article explores the sector’s biggest hurdles—like corruption and supply chain delays—alongside its boldest innovations, including BIM, 3D printing, and green building practices.",
+      readTime: "8 min read",
+      author: "Ladon Infrastructure Desk",
+      tags: [
+        "Philippines",
+        "construction",
+        "innovation",
+        "urban planning",
+        "BIM",
+        "green building",
+      ],
+    },
+  ];
 
-  const blogPosts = sortedPosts.map((post) => ({
-    ...post,
-    date: new Date(post.date).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    }),
-    image:
-      post.image === "NONE"
-        ? placeholderImage
-        : `${post.image}`,
-  }));
-
+  // Function to get category color
   const getCategoryColor = (category) => {
     switch (category.toLowerCase()) {
-      case "construction & sustainability":
+      case "buildings":
+        return "#FF5722";
+      case "construction":
         return "#4CAF50";
-      case "infrastructure development":
+      case "company":
         return "#2196F3";
-      case "architecture & engineering":
-        return "#FF9800";
-      case "construction & infrastructure":
-        return "#9C27B0";
       default:
-        return "#607D8B";
+        return "#9E9E9E";
     }
   };
 
+  // Function to get category icon
   const getCategoryIcon = (category) => {
     switch (category.toLowerCase()) {
-      case "construction & sustainability":
-        return "🌱";
-      case "infrastructure development":
-        return "🛣️";
-      case "architecture & engineering":
+      case "buildings":
+        return "🏛️";
+      case "construction":
         return "🏗️";
-      case "construction & infrastructure":
-        return "🏗️";
+      case "company":
+        return "🏢";
       default:
         return "📝";
     }
@@ -90,7 +107,14 @@ const BlogsSection = () => {
       ></div>
       <div className="container" style={{ zIndex: 2, position: "inherit" }}>
         <div className="row">
+          {/* <div className="section-header text-uppercase text-center mb-5">
+            <h2 className="left-pattern">News Articles</h2>
+            <h3 className="mt-2"></h3>
+            <div className={`${styles.sectionUnderline} mx-auto`}></div>
+          </div> */}
+
           <div
+            //className="section-header offset-lg-2"
             className="section-header col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1"
             style={{
               textShadow: "rgb(0, 0, 0) 1px 1px 2px",
@@ -103,6 +127,7 @@ const BlogsSection = () => {
               Explore the Latest in Innovation and Strategy
             </h3>
           </div>
+
           <div className="post-grid d-flex flex-wrap justify-content-center mt-5">
             {blogPosts.map((post) => (
               <div
@@ -116,13 +141,16 @@ const BlogsSection = () => {
                     hoveredCard === post.id ? styles.hovered : ""
                   }`}
                 >
+                  {/* Image Container with Overlay */}
                   <div className={styles.imageContainer}>
                     <img
-                      src={post.image}
+                      src={`/assets/images/posts/${post.image}`}
                       alt={post.title}
                       className="img-fluid unselectable"
                     />
                     <div className={styles.imageOverlay}></div>
+
+                    {/* Category Badge */}
                     <div
                       className={`${styles.categoryBadge} unselectable`}
                       style={{
@@ -134,19 +162,27 @@ const BlogsSection = () => {
                       </span>
                       {post.category}
                     </div>
+
+                    {/* Read Time */}
                     <div className={`${styles.readTime} unselectable`}>
                       <span>⏱️</span> {post.readTime}
                     </div>
                   </div>
+
+                  {/* Content */}
                   <div className={styles.contentContainer}>
                     <div className={styles.metaInfo}>
                       <span className={styles.date}>{post.date}</span>
                       <span className={styles.author}>By {post.author}</span>
                     </div>
+
                     <h3 className={styles.cardTitle}>
-                      <a href={`/blogs/${slugify(post.title)}`}>{post.title}</a>
+                      <a href={`/blog/${post.id}`}>{post.title}</a>
                     </h3>
+
                     <p className={styles.excerpt}>{post.excerpt}</p>
+
+                    {/* Tags */}
                     <div className={styles.tags}>
                       {post.tags.map((tag, index) => (
                         <span key={index} className={styles.tag}>
@@ -154,9 +190,11 @@ const BlogsSection = () => {
                         </span>
                       ))}
                     </div>
+
+                    {/* Read More Button */}
                     <div className={`${styles.readMoreContainer} unselectable`}>
                       <a
-                        href={`/blogs/${slugify(post.title)}`}
+                        href={`/blog/${post.id}`}
                         className={styles.readMoreButton}
                       >
                         Read Article
@@ -168,6 +206,16 @@ const BlogsSection = () => {
               </div>
             ))}
           </div>
+
+          {/* <div className="text-center mt-5">
+            <a
+              href="/blog"
+              className={`${styles.viewAllButton} btn-slide btn-medium btn-dark hover-slide-right text-uppercase`}
+            >
+              <span>All articles</span>
+            </a>
+          </div> */}
+
           <div style={{ textAlign: "center" }}>
             <a
               href="/blogs"

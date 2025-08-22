@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import AppLayout from "@/components/AppLayout";
-import styles from "../styles/_components/BlogPage.module.css";
+import styles from "../styles/_pages/BlogPage.module.css";
 import PageIntroBanner from "@/components/ui/PageWrapper";
+import blogCatalog from "@/contents/blogs-catalog.json";
+import { slugify } from "@/lib/utils";
+
+// Base64 placeholder image
+const placeholderImage =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg==";
 
 const BlogPage = () => {
   useEffect(() => {
@@ -10,92 +16,25 @@ const BlogPage = () => {
 
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 12;
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Creating Comfort: 10 Homy Design Ideas That Soothe the Soul",
-      date: "Aug 17, 2025",
-      category: "Home Living",
-      image: "lcs-banner-13.jpg",
-      excerpt:
-        "In a world that moves fast, your space should slow you down. These homy design ideas blend warmth, simplicity, and emotional ease—perfect for anyone seeking comfort and clarity at home.",
-      readTime: "6 min read",
-      author: "Charles Reyes",
-      tags: ["homy", "interiors", "emotional design", "slow living"],
-    },
-    {
-      id: 2,
-      title: "Amazing technologies that helped to create creative works",
-      date: "Feb 12, 2023",
-      category: "Construction",
-      image: "ladon-drone.jpeg",
-      excerpt:
-        "It's normal to feel anxiety, worry and grief any time you're diagnosed with a condition that's certainly true...",
-      readTime: "7 min read",
-      author: "Maria Garcia",
-      tags: ["technology", "innovation", "construction"],
-    },
-    {
-      id: 3,
-      title:
-        "Building Forward: Challenges and Innovations in Philippine Construction",
-      date: "Aug 17, 2025",
-      category: "Infrastructure & Innovation",
-      image: "post43.jpg",
-      excerpt:
-        "From labor shortages and red tape to modular housing and smart cities, the Philippine construction industry is evolving fast. This article explores the sector’s biggest hurdles—like corruption and supply chain delays—alongside its boldest innovations, including BIM, 3D printing, and green building practices.",
-      readTime: "8 min read",
-      author: "Ladon Infrastructure Desk",
-      tags: [
-        "Philippines",
-        "construction",
-        "innovation",
-        "urban planning",
-        "BIM",
-        "green building",
-      ],
-    },
-    {
-      id: 4,
-      title: "Sustainable construction practices for the future",
-      date: "Mar 15, 2023",
-      category: "Sustainability",
-      image: "post57.jpg",
-      excerpt:
-        "Sustainable construction is becoming increasingly important as we face global environmental challenges...",
-      readTime: "8 min read",
-      author: "Sarah Williams",
-      tags: ["sustainability", "eco-friendly", "future"],
-    },
-    {
-      id: 5,
-      title: "The evolution of modern architecture",
-      date: "Mar 22, 2023",
-      category: "Architecture",
-      image: "lcs-banner-11.jpg",
-      excerpt:
-        "Architecture has evolved significantly over the centuries, reflecting changes in technology, culture...",
-      readTime: "6 min read",
-      author: "Michael Torres",
-      tags: ["architecture", "history", "modern"],
-    },
-    {
-      id: 6,
-      title: "Innovative materials in construction",
-      date: "Apr 5, 2023",
-      category: "Materials",
-      image: "post39.jpg",
-      excerpt:
-        "The construction industry is constantly evolving with new materials that offer better performance...",
-      readTime: "9 min read",
-      author: "Jennifer Lee",
-      tags: ["materials", "innovation", "technology"],
-    },
-  ].map((item) => ({
-    ...item,
-    image: `/assets/images/posts/${item.image}`,
-  }));
+  // Process blog data: sort by date and format
+  const blogPosts = [...blogCatalog]
+    .sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return dateB - dateA; // Newest first
+    })
+    .map((post) => ({
+      ...post,
+      date: new Date(post.date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }),
+      image: post.image === "NONE" ? placeholderImage : post.image,
+    }));
 
   // Extract unique categories
   const categories = [
@@ -116,32 +55,45 @@ const BlogPage = () => {
     return matchesCategory && matchesSearch;
   });
 
+  // Pagination logic
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
   // Function to get category color
   const getCategoryColor = (category) => {
     switch (category.toLowerCase()) {
-      case "buildings":
-        return "#FF5722";
-      case "construction":
+      case "construction & sustainability":
         return "#4CAF50";
-      case "company":
+      case "infrastructure development":
         return "#2196F3";
-      case "sustainability":
-        return "#8BC34A";
-      case "architecture":
-        return "#9C27B0";
-      case "materials":
+      case "architecture & engineering":
         return "#FF9800";
+      case "construction & infrastructure":
+        return "#9C27B0";
+      case "home living":
+        return "#8BC34A";
+      case "sustainability":
+        return "#009688";
+      case "architecture":
+        return "#673AB7";
+      case "materials":
+        return "#FF5722";
       default:
         return "#607D8B";
     }
   };
+
+  // Handle page change
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="overflow-hidden">
       <AppLayout>
         <PageIntroBanner
           backgroundImageUrl="/assets/images/intro/bg-image4.jpg"
-          title="Blogs"
+          title="Our Blogs"
           pageName="Blogs"
         >
           {/* Hero Section */}
@@ -149,42 +101,51 @@ const BlogPage = () => {
             <div className="container">
               <div className="row">
                 <div className="col-12 text-center">
-                  <h1 className={styles.heroTitle}>Our Blog</h1>
+                  <h1 className={styles.heroTitle}>The LadonCo Journal</h1>
                   <p className={styles.heroSubtitle}>
-                    Insights, innovations, and industry trends from the world of
-                    construction
+                    Fresh perspectives, practical innovations, and evolving
+                    trends shaping the construction industry. Insights,
+                    innovations, and industry trends from the world of the civil
+                    construction.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-
           <section className="padding-large">
             <div className="container">
               {/* Search and Filter Section */}
-              <div className={styles.filterSection}>
-                <div className="row">
-                  <div className="col-lg-6 mb-3 mb-lg-0">
+              <div id="search" className={`{styles.filterSection}`}>
+                <div className="row mb-5">
+                  <div className="col-lg-12 mb-3 mb-lg-0">
                     <div className={styles.searchContainer}>
                       <input
                         type="text"
                         placeholder="Search articles..."
                         className={styles.searchInput}
                         value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onChange={(e) => {
+                          setSearchQuery(e.target.value);
+                          setCurrentPage(1); // Reset to first page on search
+                        }}
                       />
                       <button className={styles.searchButton}>🔍</button>
                     </div>
                   </div>
-                  <div className="col-lg-6">
-                    <div className={styles.categoryFilter}>
+                </div>
+                <div id="categories" className="row mb-5">
+                  <div className="col-lg-12">
+                    <div className={`fs-6 ${styles.categoryFilter}`}>
                       {categories.map((category) => (
                         <button
                           key={category}
                           className={`${styles.categoryButton} ${
                             activeCategory === category ? styles.active : ""
                           }`}
-                          onClick={() => setActiveCategory(category)}
+                          onClick={() => {
+                            setActiveCategory(category);
+                            setCurrentPage(1); // Reset to first page on category change
+                          }}
                           style={
                             activeCategory === category
                               ? { backgroundColor: getCategoryColor(category) }
@@ -201,8 +162,8 @@ const BlogPage = () => {
 
               {/* Blog Posts Grid */}
               <div className="post-grid d-flex flex-wrap justify-content-center mt-5">
-                {filteredPosts.length > 0 ? (
-                  filteredPosts.map((post) => (
+                {currentPosts.length > 0 ? (
+                  currentPosts.map((post) => (
                     <div key={post.id} className="col-lg-4 col-md-6 mb-4 px-3">
                       <div className={styles.blogCard}>
                         {/* Image Container */}
@@ -213,7 +174,6 @@ const BlogPage = () => {
                             className="img-fluid"
                           />
                           <div className={styles.imageOverlay}></div>
-
                           {/* Category Badge */}
                           <div
                             className={styles.categoryBadge}
@@ -223,13 +183,11 @@ const BlogPage = () => {
                           >
                             {post.category}
                           </div>
-
                           {/* Read Time */}
                           <div className={styles.readTime}>
                             ⏱️ {post.readTime}
                           </div>
                         </div>
-
                         {/* Content */}
                         <div className={styles.contentContainer}>
                           <div className={styles.metaInfo}>
@@ -238,13 +196,12 @@ const BlogPage = () => {
                               By {post.author}
                             </span>
                           </div>
-
                           <h3 className={styles.cardTitle}>
-                            <a href={`/blog/${post.id}`}>{post.title}</a>
+                            <a href={`/blogs/${slugify(post.title)}`}>
+                              {post.title}
+                            </a>
                           </h3>
-
                           <p className={styles.excerpt}>{post.excerpt}</p>
-
                           {/* Tags */}
                           <div className={styles.tags}>
                             {post.tags.map((tag, index) => (
@@ -253,11 +210,10 @@ const BlogPage = () => {
                               </span>
                             ))}
                           </div>
-
                           {/* Read More Button */}
                           <div className={styles.readMoreContainer}>
                             <a
-                              href={`/blog/${post.id}`}
+                              href={`/blogs/${slugify(post.title)}`}
                               className={styles.readMoreButton}
                             >
                               Read Article
@@ -279,46 +235,73 @@ const BlogPage = () => {
               </div>
 
               {/* Enhanced Pagination */}
-              <nav
-                aria-label="Page navigation"
-                className={styles.paginationContainer}
-              >
-                <ul className="pagination justify-content-center mt-5">
-                  <li className="page-item">
-                    <a
-                      className={`page-link ${styles.pageLink}`}
-                      href="#"
-                      aria-label="Previous"
+              {totalPages > 1 && (
+                <nav
+                  aria-label="Page navigation"
+                  className={styles.paginationContainer}
+                >
+                  <ul className="pagination justify-content-center mt-5">
+                    <li
+                      className={`page-item ${
+                        currentPage === 1 ? "disabled" : ""
+                      }`}
                     >
-                      <span aria-hidden="true">«</span>
-                    </a>
-                  </li>
-                  <li className="page-item active">
-                    <a className={`page-link ${styles.pageLink}`} href="#">
-                      1
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className={`page-link ${styles.pageLink}`} href="#">
-                      2
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className={`page-link ${styles.pageLink}`} href="#">
-                      3
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a
-                      className={`page-link ${styles.pageLink}`}
-                      href="#"
-                      aria-label="Next"
+                      <a
+                        className={`page-link ${styles.pageLink}`}
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (currentPage > 1) paginate(currentPage - 1);
+                        }}
+                        aria-label="Previous"
+                      >
+                        <span aria-hidden="true">«</span>
+                      </a>
+                    </li>
+
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                      (number) => (
+                        <li
+                          key={number}
+                          className={`page-item ${
+                            currentPage === number ? "active" : ""
+                          }`}
+                        >
+                          <a
+                            className={`page-link ${styles.pageLink}`}
+                            href="#"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              paginate(number);
+                            }}
+                          >
+                            {number}
+                          </a>
+                        </li>
+                      )
+                    )}
+
+                    <li
+                      className={`page-item ${
+                        currentPage === totalPages ? "disabled" : ""
+                      }`}
                     >
-                      <span aria-hidden="true">»</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+                      <a
+                        className={`page-link ${styles.pageLink}`}
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (currentPage < totalPages)
+                            paginate(currentPage + 1);
+                        }}
+                        aria-label="Next"
+                      >
+                        <span aria-hidden="true">»</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              )}
             </div>
           </section>
         </PageIntroBanner>

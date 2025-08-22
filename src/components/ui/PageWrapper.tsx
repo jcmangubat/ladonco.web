@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface PageWrapperProps {
   backgroundImageUrl: string;
   title: string;
-  pageName: string;
+  pageName: ReactNode;
   children?: React.ReactNode;
 }
 
@@ -11,7 +11,7 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
   backgroundImageUrl,
   title,
   pageName,
-  children
+  children,
 }) => {
   return (
     <>
@@ -28,7 +28,9 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
       >
         <div className="container pt-5" data-aos="fade-up">
           <div className="row py-5">
-            <div className="banner-content my-5 py-5">
+            {/* <div className="banner-content my-5 py-5">*/}
+            <div className="banner-content mt-5 pt-5">
+              {" "}
               <h1 className="banner-title light text-uppercase fw-bold">
                 {title}
               </h1>

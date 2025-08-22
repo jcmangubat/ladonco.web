@@ -43,12 +43,95 @@
   color: #ffc107;
 }
 
+.banner-title {
+  font-size: 6em;
+}
+
 @media screen and (max-width: 599px) {
   .banner-title {
     font-size: 4em;
   }
 }
 
+@media screen and (max-width: 480px) {
+  .banner-title {
+    font-size: 3em;
+  }
+}
+
 .widget-visible {
   bottom: 150px !important;
+}
+
+/* .markdown-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: large!important;
+  font-family: Century Gothic!important;
+} */
+
+/* 
+.markdown-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.markdown-container pre {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.markdown-container code {
+  font-family: cursive;
+  font-size: 14px;
+} */
+
+/* .language-markdown {
+  width: 100%;
+  display: block;
+  text-wrap: wrap;
+  
+  line-height: 1.5;
+  font-size: large;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+} */
+
+.markdown-responsive {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.25rem !important;
+  line-height: 1.75;
+  color: #333;
+}
+
+.language-markdown {
+  width: 100%;
+  display: block;
+  white-space: pre-wrap; /* use this instead of text-wrap */
+  word-wrap: break-word;
+  text-wrap: wrap;
+}
+
+/* .language-markdown pre code {
+  text-wrap: wrap;
+} */
+
+@media (max-width: 992px) {
+  .markdown-responsive {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .markdown-responsive {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .markdown-responsive {
+    font-size: 0.95rem;
+  }
 }
