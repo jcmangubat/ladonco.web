@@ -222,11 +222,11 @@ const BlogDetailsPage: React.FC = () => {
           date={blogArticle.date}
         />
         <PageIntroBanner
-          backgroundImageUrl="/assets/images/intro/bg-image4.jpg"
+          backgroundImageUrl="/assets/images/intro/bg-image13.jpg"
           title={blogArticle.title}
           pageName={
             <>
-              <Link to="/blogs" className="text-decoration-none text-primary">
+              <Link to="/blogs" className="text-decoration-none">
                 Blogs
               </Link>
               {" / "}

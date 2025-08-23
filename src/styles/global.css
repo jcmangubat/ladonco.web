@@ -17,39 +17,6 @@
 @import '_utilities/_responsiveness.css';
 @import '_utilities/_markdown.css';
 
-/* 
-@font-face {
-  font-family: 'Open Sans';
-  src: url('/fonts/open-sans-v43-latin-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  src: url('/fonts/open-sans-v43-latin-italic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  src: url('/fonts/open-sans-v43-latin-700.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Oswald';
-  src: url('/fonts/oswald-v56-latin-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-} */
-
 /* Add these missing styles */
 .light {
   color: var(--light-color) !important;
@@ -203,4 +170,24 @@ button.filter-button.active {
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none;    /* Firefox */
   -ms-user-select: none;     /* IE/Edge */
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+.breadcrumbItem {
+  color: var(--light-color);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: white;
+}
+
+.breadcrumb-item:hover {
+  color: var(--bs-primary);
 }

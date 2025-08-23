@@ -92,7 +92,7 @@ const BlogPage = () => {
     <div className="overflow-hidden">
       <AppLayout>
         <PageIntroBanner
-          backgroundImageUrl="/assets/images/intro/bg-image4.jpg"
+          backgroundImageUrl="/assets/images/intro/bg-image13.jpg"
           title="Our Blogs"
           pageName="Blogs"
         >

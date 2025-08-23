@@ -23,7 +23,8 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          filter: "grayscale(1)",
+          height: "60vh",
+          // filter: "grayscale(1)",
         }}
       >
         <div className="container pt-5" data-aos="fade-up">
@@ -31,10 +32,10 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
             {/* <div className="banner-content my-5 py-5">*/}
             <div className="banner-content mt-5 pt-5">
               {" "}
-              <h1 className="banner-title light text-uppercase fw-bold">
+              <h1 className="unselectable banner-title light text-uppercase fw-bold">
                 {title}
               </h1>
-              <nav className="breadcrumb mt-3">
+              <nav className="breadcrumb mt-3 unselectable">
                 <a className="breadcrumb-item text-white" href="/">
                   Home
                 </a>
@@ -42,7 +43,7 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
                   className="breadcrumb-item active text-white"
                   aria-current="page"
                 >
-                  / {pageName}
+                  {pageName}
                 </span>
               </nav>
             </div>

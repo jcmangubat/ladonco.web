@@ -3,18 +3,6 @@
   padding-left: 50px;
 }
 
-.breadcrumb {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  background: none;
-}
-
-.breadcrumbItem {
-  color: var(--light-color);
-}
-
 /* Headings */
 .heading {
   font-family: var(--heading-font);
@@ -114,7 +102,8 @@
 .card {
   background-color: #fff;
   border-radius: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   padding: 1.5rem;
   margin-bottom: 2rem;
 }

@@ -28,18 +28,19 @@ const AboutPage = () => {
               <div className="container">
                 <div className="row d-flex align-items-center">
                   <div className="col-md-5">
+                    {/* <div className="image-holder"> */}
                     <div className="image-holder">
                       <img
                         src="assets/images/team/ladon-founder.png"
                         alt="Charlemagne Reyes"
                         className="img-fluid unselectable"
-                        style={{
-                          backgroundColor: "white",
-                          padding: "75px",
-                          borderRadius: "18px",
-                          overflow: "hidden",
-                          display: "inline-block",
-                        }}
+                        // style={{
+                        //   backgroundColor: "white",
+                        //   padding: "75px",
+                        //   borderRadius: "18px",
+                        //   overflow: "hidden",
+                        //   display: "inline-block",
+                        // }}
                         draggable={false}
                       />
                     </div>

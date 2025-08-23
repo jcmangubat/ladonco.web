@@ -87,7 +87,7 @@ const Header = () => {
                     className={`nav-link ${
                       isMenuOpen ? "" : styles["nav-link-light"]
                     } text-uppercase p-0`}
-                    to="/#about"
+                    to="/about"
                     onClick={handleNavClick}
                   >
                     About
@@ -98,7 +98,7 @@ const Header = () => {
                     className={`nav-link ${
                       isMenuOpen ? "" : styles["nav-link-light"]
                     } text-uppercase p-0`}
-                    to="/#projects"
+                    to="/projects"
                     onClick={handleNavClick}
                   >
                     Projects

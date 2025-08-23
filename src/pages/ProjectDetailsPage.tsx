@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import AppLayout from "@/components/AppLayout";
 import PageIntroBanner from "@/components/ui/PageWrapper";
@@ -64,7 +64,16 @@ const ProjectDetailsPage: React.FC = () => {
         <PageIntroBanner
           backgroundImageUrl="/assets/images/intro/bg-image4.jpg"
           title={project.projectName}
-          pageName={project.slug}
+          //pageName={project.slug}
+          pageName={
+            <>
+              <Link to="/projects" className="text-decoration-none">
+                Projects
+              </Link>
+              {" / "}
+              <span className="">{project.slug}</span>
+            </>
+          }
         >
           <section
             style={{
@@ -73,10 +82,7 @@ const ProjectDetailsPage: React.FC = () => {
               padding: "2rem 1rem",
             }}
           >
-            <button
-              onClick={() => navigate(-1)}
-              className={styles["back-to"]}
-            >
+            <button onClick={() => navigate(-1)} className={styles["back-to"]}>
               ← Back to Projects
             </button>
 
