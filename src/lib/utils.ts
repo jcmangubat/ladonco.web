@@ -26,3 +26,8 @@ export function stripFrontmatter(markdown: string): string {
   const frontmatterRegex = /^---\s*[\s\S]*?---\s*/;
   return markdown.replace(frontmatterRegex, "").trim();
 }
+
+export const isValidPhone = (phone: string) => {
+  // basic check: at least 7–15 digits
+  return /^\+?\d{7,15}$/.test(phone);
+};

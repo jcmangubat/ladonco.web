@@ -1,25 +1,30 @@
 /* Contact Page Layout */
-.contact-page .banner-content { padding-left: 50px; }
-.contact-page .breadcrumb {
+.bannerContent {
+  padding-left: 50px;
+}
+
+.breadcrumb {
   display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
   background: none;
 }
-.contact-page .breadcrumb-item { color: var(--light-color); }
+
+.breadcrumbItem {
+  color: var(--light-color);
+}
 
 /* Headings */
-.contact-page .contact-info h3,
-.contact-page .inquiry-item h3 {
+.heading {
   font-family: var(--heading-font);
   font-weight: 600;
   margin-bottom: 20px;
   position: relative;
   padding-bottom: 15px;
 }
-.contact-info h3::after,
-.inquiry-item h3::after {
+
+.heading::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -29,53 +34,63 @@
   background-color: var(--primary-color);
 }
 
-.contact-page .element-title {
+.elementTitle {
   font-family: var(--heading-font);
   font-weight: 600;
   color: var(--dark-color);
 }
 
 /* Links & Address */
-.contact-page .contact-address p,
-.contact-page .contact-number p,
-.contact-page .email-address p { margin-bottom: 10px; }
+.contactInfo p {
+  margin-bottom: 10px;
+}
 
-.contact-page .contact-number a,
-.contact-page .email-address a {
+.contactLink {
   color: var(--dark-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
-.contact-page .contact-number a:hover,
-.contact-page .email-address a:hover {
+
+.contactLink:hover {
   color: var(--primary-color);
 }
 
 /* Social Icons */
-.contact-page .social-icon { font-size: 20px; transition: color 0.3s ease; }
-.contact-page .social-links a:hover .social-icon { color: var(--primary-color) !important; }
+.socialIcon {
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover .socialIcon {
+  color: var(--primary-color) !important;
+}
 
 /* Form */
-.contact-page .form-control {
+.formControl {
   border: 1px solid #ddd;
   border-radius: 0;
   padding: 10px 15px;
   font-size: 16px;
   transition: border-color 0.3s ease;
 }
-.contact-page .form-control:focus {
+
+.formControl:focus {
   border-color: var(--primary-color);
   box-shadow: none;
 }
 
 /* Button Arrow Effect */
-.contact-page .btn-arrow {
+.btnArrow {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
 }
-.contact-page .btn-arrow:hover { color: var(--light-color); }
-.contact-page .btn-arrow::after {
+
+.btnArrow:hover {
+  color: var(--light-color);
+}
+
+.btnArrow::after {
   content: "";
   position: absolute;
   top: 0;
@@ -86,6 +101,242 @@
   transition: width 0.3s ease;
   z-index: -1;
 }
-.contact-page .btn-arrow:hover::after { width: 100%; }
 
-.contact-list .border-end { border-right: 1px solid #eee !important; }
+.btnArrow:hover::after {
+  width: 100%;
+}
+
+.borderEnd {
+  border-right: 1px solid #eee !important;
+}
+
+/* Additional styles for enhanced design */
+.card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.accentLine {
+  height: 0.25rem;
+  width: 5rem;
+  background-color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.iconContainer {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: rgba(16, 185, 129, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.contactContent h3 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.contactContent p {
+  color: #4b5563;
+}
+
+.buttonContainer {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .buttonContainer {
+    flex-direction: row;
+  }
+}
+
+.socialContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.socialButton {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  transition: all 0.2s ease;
+}
+
+.socialButton:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.formTextarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.checkboxItem {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxInput {
+  width: 1rem;
+  height: 1rem;
+  color: #10b981;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+}
+
+.checkboxLabel {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background-color: #10b981;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitButton:hover {
+  background-color: #059669;
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.statusMessage {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.successMessage {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #065f46;
+}
+
+.errorMessage {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #991b1b;
+}
+
+.statusIcon {
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+  margin-top: 0.125rem;
+}
+
+.tabNavigation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.tabContainer {
+  display: inline-flex;
+  background-color: #f3f4f6;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
+.tabButton {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tabActive {
+  background-color: white;
+  color: #10b981;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.tabInactive {
+  color: #4b5563;
+}
+
+.tabInactive:hover {
+  color: #1f2937;
+}
+
+@media (max-width: 767px) {
+  .bannerContent {
+    padding-left: 20px;
+  }
+}

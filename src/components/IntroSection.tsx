@@ -7,6 +7,8 @@ import BannerTransition from "./ui/banner-transition";
 import { url } from "inspector";
 import frag from "@/shaders/glasswave.frag";
 import vert from "@/shaders/glasswave.vert";
+import { Button } from "./ui/button";
+import { Phone } from "lucide-react";
 
 const headlines = [
   {
@@ -205,31 +207,9 @@ const IntroSection: React.FC = () => {
         } else {
           // Fade out during second half
           const fadeProgress =
-            (elapsed - PAUSE_DURATION / 1) / (PAUSE_DURATION / 1);
-          setTextOpacity(1 - fadeProgress);
+            (elapsed - PAUSE_DURATION / 2) / (PAUSE_DURATION / 2);
+          setTextOpacity(Math.max(0, 1 - fadeProgress)); // clamp between 0–1
         }
-
-        // if (elapsed >= PAUSE_DURATION) {
-        //   // Move to next slide and start transition
-        //   setFromIndex(toIndex);
-        //   setToIndex((prev) => (prev + 1) % headlines.length);
-
-        //   phase = "transition";
-        //   startTime = performance.now();
-        //   setProgress(0);
-
-        //   // Reset AOS animation classes on elements inside .banner-content
-        //   const bannerContent = document.querySelector(".banner-content");
-        //   if (bannerContent) {
-        //     bannerContent.querySelectorAll("[data-aos]").forEach((el) => {
-        //       el.classList.remove("aos-animate");
-        //       (el as HTMLElement).style.opacity = ""; // cast to HTMLElement to access style
-        //     });
-        //   }
-
-        //   // Then refresh AOS to re-detect and animate
-        //   AOS.refresh();
-        // }
 
         if (elapsed >= PAUSE_DURATION) {
           setFromIndex(toIndex);
@@ -269,10 +249,6 @@ const IntroSection: React.FC = () => {
       className="position-relative overflow-hidden unselectable"
       style={{
         height: "100vh",
-        //backgroundImage: `url('${headlines[0].image}')`,
-        //backgroundImage: `url('${currentBg}')`,
-        // backgroundSize: "cover",
-        // objectPosition: "center",
       }}
     >
       <div
@@ -283,7 +259,12 @@ const IntroSection: React.FC = () => {
           objectPosition: "center",
         }}
       >
-        <BannerTransition from={from.image} to={to.image} progress={progress} canvasClassName={styles['banner-transition-canvas']} />
+        <BannerTransition
+          from={from.image}
+          to={to.image}
+          progress={progress}
+          canvasClassName={styles["banner-transition-canvas"]}
+        />
       </div>
 
       <div style={{ width: "100%", height: "100vh" }}>
@@ -315,13 +296,31 @@ const IntroSection: React.FC = () => {
           <h3 className={`${styles["banner-quote-ladon"]} mt-10`}>
             {from.caption}
           </h3>
-          <a
-            href="#projects"
-            className={`${styles["btn-hero-cta"]} btn-slide btn-medium btn-light hover-slide-right text-uppercase mt-5 d-inline-block`}
-            draggable={false}
+          <div
+            className="text-center"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "1rem",
+              minHeight: "5vh",
+            }}
           >
-            <span className={styles["btn-hero-span"]}>View our projects</span>
-          </a>
+            <a
+              href="#projects"
+              className={`${styles["btn-hero-cta"]} btn-slide btn-medium btn-light hover-slide-right text-uppercase mt-5 d-inline-block`}
+              draggable={false}
+            >
+              <span className={styles["btn-hero-span"]}>View our projects</span>
+            </a>
+            <a
+              href="/contact"
+              className={`${styles["btn-hero-cta"]} bg-black btn-slide btn-medium btn-light hover-slide-right text-uppercase mt-5 d-inline-block text-white`}
+              draggable={false}
+            >
+              <span className={styles["btn-hero-span"]}>Get a Free Quote</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
