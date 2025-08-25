@@ -34,6 +34,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/contents/posts/*.md
+          git add public/contents/posts/*.md
           git commit -m "chore: weekly article update [skip ci]" || echo "No changes"
           git push
