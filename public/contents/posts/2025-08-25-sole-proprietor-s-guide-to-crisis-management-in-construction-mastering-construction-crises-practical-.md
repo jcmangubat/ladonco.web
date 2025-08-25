@@ -5,7 +5,7 @@ author: "LadonCo"
 category: "Construction & Business Resilience"
 tags: ["construction crisis management","small business resilience","Filipino construction industry","risk mitigation","client trust","emergency response"]
 excerpt: "In the unpredictable world of construction, staying calm and prepared is key. Discover expert strategies tailored for sole proprietors to navigate crises effectively and rebuild trust with clients and stakeholders."
-slug: "mastering-construction-crises-practical-strategies-for-sole-proprietors"
+slug: "mastering-construction-crises-practical-strategies-for-sole-proprietors-2"
 ---
 
 Alright, diving into the Sole Proprietor’s playbook for navigating crises in construction—it's a wild ride, but a structured approach can turn chaos into manageable waves. Here’s a breakdown that merges real-world savvy with strategic clarity:
