@@ -45,5 +45,6 @@ jobs:
           git add public/contents/posts/*.md
           git add public/contents/posts/images/*.png
           git add public/contents/blogs-catalog.json
+          git add src/contents/blogs-catalog.json
           git commit -m "chore: weekly article + image update" || echo "No changes"
           git push
