@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AppLayout from "@/components/AppLayout";
 import styles from "../styles/_pages/BlogPage.module.css";
 import PageIntroBanner from "@/components/ui/PageWrapper";
-import blogCatalog from "@/contents/blogs-catalog.json";
+import blogCatalog from "./../../public/contents/blogs-catalog.json";
 import { slugify } from "@/lib/utils";
 
 // Base64 placeholder image

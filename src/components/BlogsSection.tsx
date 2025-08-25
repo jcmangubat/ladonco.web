@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { jarallax } from "jarallax";
 import styles from "@/styles/_components/BlogSection.module.css";
-import blogCatalog from "@/contents/blogs-catalog.json";
+import blogCatalog from "./../../public/contents/blogs-catalog.json";
 import { slugify } from "@/lib/utils";
 
 // Base64 placeholder image
