@@ -28,6 +28,7 @@ jobs:
         env:
           VITE_ARTICLE_AIPROMPT_TEMPLATE: ${{ secrets.VITE_ARTICLE_AIPROMPT_TEMPLATE }}
           VITE_ARTICLE_PROVIDER: ${{ secrets.VITE_ARTICLE_PROVIDER }}
+          VITE_IMAGE_AIPROMPT_TEMPLATE: ${{ secrets.VITE_IMAGE_AIPROMPT_TEMPLATE }}
 
       - name: Commit and push generated article
         run: |
