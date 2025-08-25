@@ -52,6 +52,8 @@ export default defineConfig(({ mode }) => ({
         ...getBlogRoutes(),
         ...getServiceRoutes(),
       ],
+      outDir: "dist",
+      lastmod: new Date(),
       changefreq: "daily",
       priority: 0.7,
       readable: true,
