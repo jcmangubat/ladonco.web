@@ -146,7 +146,7 @@ Fill in the following JSON object with emotionally resonant and SEO-friendly val
   try {
     // Fetch metadata from the AI service
     console.log("🔍 Fetching metadata...");
-    const url = `https://text.pollinations.ai/${encodeURIComponent(
+    const url = `${process.env.VITE_ARTICLE_PROVIDER}${encodeURIComponent(
       metadataPrompt
     )}`;
     //console.log(`🔗 Fetching from: ${url}`);
@@ -235,14 +235,14 @@ async function generateImage(metadata) {
   const imageFilePath = path.join(pubPostImgDir, imageFileName);
   metadata.image = `/contents/posts/images/${imageFileName}`;
 
-  // Build Pollinations API URL
-  const pollinationsUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(
+  // Build image API URL
+  const imgProviderUrl = `${process.env.VITE_IMAGE_PROVIDER}prompt/${encodeURIComponent(
     imagePrompt
   )}?width=1024&height=512&seed=40&nologo=true`;
 
   // Fetch and save image
   try {
-    const response = await fetch(pollinationsUrl);
+    const response = await fetch(imgProviderUrl);
 
     if (!response.ok) {
       throw new Error(`Image generation failed: ${response.statusText}`);
@@ -263,9 +263,10 @@ async function generateImage(metadata) {
 
 async function run() {
   validateEnv([
-    "VITE_ARTICLE_AIPROMPT_TEMPLATE",
     "VITE_ARTICLE_PROVIDER",
-    "VITE_IMAGE_AIPROMPT_TEMPLATE",
+    "VITE_ARTICLE_AIPROMPT_TEMPLATE",    
+    "VITE_IMAGE_PROVIDER",
+    "VITE_IMAGE_AIPROMPT_TEMPLATE",    
   ]);
 
   const {
