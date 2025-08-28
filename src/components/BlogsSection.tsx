@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { jarallax } from "jarallax";
 import styles from "@/styles/_components/BlogSection.module.css";
-import blogCatalog from "./../../public/contents/posts/blogs-catalog.json";
+//import blogCatalog from "./../../public/contents/posts/blogs-catalog.json";
 import { slugify } from "@/lib/utils";
 
 // Base64 placeholder image
@@ -10,6 +10,13 @@ const placeholderImage =
 
 const BlogsSection = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [blogCatalog, setBlogCatalog] = useState([]);
+
+  useEffect(() => {
+    fetch("/contents/posts/blogs-catalog.json")
+      .then((res) => res.json())
+      .then((data) => setBlogCatalog(data));
+  }, []);
 
   // Sort by date (newest first) and take only top 3
   const sortedPosts = [...blogCatalog]
@@ -28,10 +35,7 @@ const BlogsSection = () => {
       month: "short",
       day: "numeric",
     }),
-    image:
-      post.image === "NONE"
-        ? placeholderImage
-        : `${post.image}`,
+    image: post.image === "NONE" ? placeholderImage : `${post.image}`,
   }));
 
   const getCategoryColor = (category) => {
@@ -75,11 +79,7 @@ const BlogsSection = () => {
       id="latest-blog"
       className={`jarallax padding-small ${styles["blogs-section"]}`}
     >
-      <img
-        className="jarallax-img"
-        src="/images/intro/bg-image4.png"
-        alt=""
-      />
+      <img className="jarallax-img" src="/images/intro/bg-image4.png" alt="" />
       <div
         className={styles["blogs-section-overlay"]}
         style={{
