@@ -300,8 +300,8 @@ async function run() {
 
   // Construct the final prompt
   // Example: "produce md discussing The Future of AI in Everyday Life. <template>"
-  //const finalPrompt = `produce md discussing ${selectedTopic}. ${promptTemplate}`;
-  const finalPrompt = selectedTopic;
+  const finalPrompt = `Generate a 500-word engaging article (no title) in product markdown text about ${selectedTopic}. ${promptTemplate}`;
+  //const finalPrompt = selectedTopic;
   const url = `${provider}${encodeURIComponent(finalPrompt)}`;
 
   console.log(`📡 Generating article for topic: ${selectedTopic}`);

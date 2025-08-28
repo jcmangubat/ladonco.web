@@ -75,35 +75,6 @@ const markdownComponents: Components = {
     <h3 className="fs-4 fw-semibold mb-3" {...props} />
   ),
   p: ({ node, ...props }) => <p className="lh-lg text-dark mb-3" {...props} />,
-  // p: ({ node, children, ...props }) => {
-  //   const isFirstParagraph =
-  //     node?.position?.start.line === 1 || node?.position?.start.offset === 0;
-
-  //   // Make sure children[0] is actually a string
-  //   if (
-  //     isFirstParagraph &&
-  //     Array.isArray(children) &&
-  //     typeof children[0] === "string"
-  //   ) {
-  //     const text = children[0] as string;
-  //     return (
-  //       <p {...props}>
-  //         <span
-  //           style={{
-  //             fontSize: "34px",
-  //             fontWeight: "bolder",
-  //             paddingTop: "10px",
-  //           }}
-  //         >
-  //           {text.charAt(0)}
-  //         </span>
-  //         {text.slice(1)}
-  //         {children.slice(1)}
-  //       </p>
-  //     );
-  //   }
-  //   return <p {...props}>{children}</p>;
-  // },
   ul: ({ node, ...props }) => <ul className="lh-lg ps-4 mb-3" {...props} />,
   ol: ({ node, ...props }) => <ol className="lh-lg ps-4 mb-3" {...props} />,
   li: ({ node, ...props }) => <li className="mb-2" {...props} />,
@@ -167,7 +138,10 @@ const BlogDetailsPage: React.FC = () => {
       }
 
       const rawMarkdown = await response.text();
-      const content = stripFrontmatter(rawMarkdown);
+      const content = stripFrontmatter(rawMarkdown)
+        .replace(/\bKabayan\b/g, "<em>Kabayan</em>")
+        .replace(/\bKababayan\b/g, "<em>Kababayan</em>");
+
       return content;
     } catch (error) {
       throw new Error(`Failed to load markdown: ${error.message}`);

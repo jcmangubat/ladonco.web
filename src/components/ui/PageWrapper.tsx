@@ -18,20 +18,19 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
       <section
         id="intro"
         style={{
-          background: `url(${backgroundImageUrl})`,
           backgroundImage: `linear-gradient(rgba(8, 37, 83, 0.97), rgba(94, 98, 145, 0.47)), url("${backgroundImageUrl}")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           height: "60vh",
-          // filter: "grayscale(1)",
         }}
       >
-        <div className="container pt-5" data-aos="fade-up">
-          <div className="row py-5">
-            {/* <div className="banner-content my-5 py-5">*/}
-            <div className="banner-content mt-5 pt-5">
-              {" "}
+        <div className="container h-100">
+          <div
+            className="row h-100 align-items-center justify-content-center"
+            data-aos="fade-up"
+          >
+            <div className="col-auto justify-left banner-content">
               <h1 className="unselectable banner-title light text-uppercase fw-bold">
                 {title}
               </h1>

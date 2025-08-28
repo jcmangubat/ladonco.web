@@ -43,19 +43,50 @@
   color: #ffc107;
 }
 
+/* Default: Large desktops and up */
 .banner-title {
   font-size: 6em;
 }
 
-@media screen and (max-width: 599px) {
+/* Medium desktops and laptops */
+@media screen and (max-width: 1199px) {
   .banner-title {
     font-size: 4em;
   }
 }
 
-@media screen and (max-width: 480px) {
+/* Tablets and small laptops */
+@media screen and (max-width: 991px) {
+  .banner-title {
+    font-size: 3.5em;
+  }
+}
+
+/* Large phones and portrait tablets */
+@media screen and (max-width: 767px) {
   .banner-title {
     font-size: 3em;
+  }
+}
+
+/* Mid-size phones */
+@media screen and (max-width: 599px) {
+  .banner-title {
+    font-size: 2.5em;
+  }
+}
+
+/* Small phones */
+@media screen and (max-width: 480px) {
+  .banner-title {
+    font-size: 2.25em;
+  }
+}
+
+/* Extra small devices (older phones, watch browsers) */
+@media screen and (max-width: 360px) {
+  .banner-title {
+    font-size: 2em;
   }
 }
 
