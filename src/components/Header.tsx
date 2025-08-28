@@ -31,7 +31,7 @@ const Header = () => {
             to="/"
           >
             <img
-              src="/assets/images/lcs-banner.png"
+              src="/images/lcs-banner.png"
               className={styles['navbar-brand-logo']}
               alt="LadonCo Header Logo"
               draggable={false}

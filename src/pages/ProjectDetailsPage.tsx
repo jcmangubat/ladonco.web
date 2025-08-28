@@ -29,7 +29,7 @@ const ProjectDetailsPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/assets/contents/projects/index.json")
+    fetch("/contents/projects/index.json")
       .then((res) => res.json())
       .then((data) => {
         const normalized = data.map((p: any) => ({
@@ -47,7 +47,7 @@ const ProjectDetailsPage: React.FC = () => {
         console.log("match", match);
         if (match) {
           setProject(match);
-          fetch(`/assets/contents/projects/${match.assetsRef}`)
+          fetch(`/contents/projects/${match.assetsRef}`)
             .then((res) => res.json())
             .then((imgs: string[]) => setImages(imgs));
         }
@@ -62,7 +62,7 @@ const ProjectDetailsPage: React.FC = () => {
     <div className="overflow-hidden">
       <AppLayout>
         <PageIntroBanner
-          backgroundImageUrl="/assets/images/intro/bg-image4.jpg"
+          backgroundImageUrl="/images/intro/bg-image4.jpg"
           title={project.projectName}
           //pageName={project.slug}
           pageName={

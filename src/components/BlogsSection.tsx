@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { jarallax } from "jarallax";
 import styles from "@/styles/_components/BlogSection.module.css";
-import blogCatalog from "./../../public/contents/blogs-catalog.json";
+import blogCatalog from "./../../public/contents/posts/blogs-catalog.json";
 import { slugify } from "@/lib/utils";
 
 // Base64 placeholder image
@@ -77,7 +77,7 @@ const BlogsSection = () => {
     >
       <img
         className="jarallax-img"
-        src="/assets/images/intro/bg-image4.png"
+        src="/images/intro/bg-image4.png"
         alt=""
       />
       <div

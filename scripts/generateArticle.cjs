@@ -349,7 +349,7 @@ async function run() {
 
     const publicCatalogPath = path.join(
       __dirname,
-      "../public/contents/blogs-catalog.json"
+      "../public/contents/posts/blogs-catalog.json"
     );
 
     const frontmatter = `---

@@ -13,7 +13,7 @@ const AboutSection = () => {
                 We’re more than a company. Here’s our story.
               </h3>
               <img
-                src="/assets/images/ladonco-spirit.png"
+                src="/images/ladonco-spirit.png"
                 alt="LadonCo Spirit"
                 className="img-fluid w-100 mb-4 unselectable"
                 draggable={false}

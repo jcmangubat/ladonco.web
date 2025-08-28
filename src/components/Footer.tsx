@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="col-lg-3 col-md-6 col-sm-6 pb-3">
             <div className={styles.footerSection}>
               <img
-                src="/assets/images/lcs-banner.png"
+                src="/images/lcs-banner.png"
                 className={`${styles.logo} unselectable`}
                 draggable={false}
                 alt="LadonCo Footer Logo"

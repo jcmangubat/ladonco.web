@@ -16,7 +16,7 @@ const ServiceDetailsPage = () => {
   useEffect(() => {
     const fetchMarkdown = async () => {
       try {
-        const mdLocation = `/assets/contents/service-details/${srvcGrp}/${slug}.md`;
+        const mdLocation = `/contents/services/${srvcGrp}/${slug}.md`;
         console.log(`mdlocation : ${mdLocation}`);
 
         const response = await fetch(mdLocation);
@@ -42,7 +42,7 @@ const ServiceDetailsPage = () => {
     <div className="overflow-hidden">
       <AppLayout>
         <PageIntroBanner
-          backgroundImageUrl="/assets/images/intro/bg-image7.jpg"
+          backgroundImageUrl="/images/intro/bg-image7.jpg"
           title="Service Details"
           pageName="ServiceDetails"
         >

@@ -151,7 +151,7 @@ const headlines = [
   },
 ].map((item) => ({
   ...item,
-  image: `/assets/images/hero/${item.image}`,
+  image: `/images/hero/${item.image}`,
 }));
 
 const IntroSection: React.FC = () => {

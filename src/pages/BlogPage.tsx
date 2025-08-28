@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AppLayout from "@/components/AppLayout";
 import styles from "../styles/_pages/BlogPage.module.css";
 import PageIntroBanner from "@/components/ui/PageWrapper";
-import blogCatalog from "./../../public/contents/blogs-catalog.json";
+import blogCatalog from "./../../public/contents/posts/blogs-catalog.json";
 import { slugify } from "@/lib/utils";
 
 // Base64 placeholder image
@@ -92,7 +92,7 @@ const BlogPage = () => {
     <div className="overflow-hidden">
       <AppLayout>
         <PageIntroBanner
-          backgroundImageUrl="/assets/images/intro/bg-image13.jpg"
+          backgroundImageUrl="/images/intro/bg-image13.jpg"
           title="Our Blogs"
           pageName="Blogs"
         >

@@ -16,7 +16,7 @@ const AboutPage = () => {
     <div className="overflow-hidden">
       <AppLayout>
         <PageIntroBanner
-          backgroundImageUrl="/assets/images/team/team-01.jpg"
+          backgroundImageUrl="/images/team/team-01.jpg"
           title="About Us"
           pageName="About"
         >
@@ -31,7 +31,7 @@ const AboutPage = () => {
                     {/* <div className="image-holder"> */}
                     <div className="image-holder">
                       <img
-                        src="assets/images/team/ladon-founder.png"
+                        src="images/team/ladon-founder.png"
                         alt="Charlemagne Reyes"
                         className="img-fluid unselectable"
                         // style={{
@@ -130,7 +130,7 @@ const AboutPage = () => {
                   <div className="col-md-5">
                     <div className="image-holder text-right">
                       <img
-                        src="/assets/images/post-item2.jpg"
+                        src="/images/post-item2.jpg"
                         alt="about-us"
                         className="img-fluid unselectable"
                         draggable={false}

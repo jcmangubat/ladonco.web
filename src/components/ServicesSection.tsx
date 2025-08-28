@@ -18,7 +18,7 @@ const ServicesSection = () => {
         }}
       >
         <img
-          src={`/assets/images/services/${group.title
+          src={`/images/services/${group.title
             .toLowerCase()
             .replace(/ & | /g, "-")}.png`}
           alt={group.title}
@@ -92,7 +92,7 @@ const ServicesSection = () => {
     >
       <img
         className="jarallax-img"
-        src="/assets/images/intro/bg-image4.jpg"
+        src="/images/intro/bg-image4.jpg"
         alt=""
       />
       <div

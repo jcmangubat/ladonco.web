@@ -16,7 +16,7 @@ const AppLayout = () => {
       id="contact"
       className="d-flex align-items-center"
       style={{
-        backgroundImage: `url("/assets/images/intro/bg-image14.jpg")`,
+        backgroundImage: `url("/images/intro/bg-image14.jpg")`,
         width: "100%",
         height: "567px",
         backgroundRepeat: "no-repeat",

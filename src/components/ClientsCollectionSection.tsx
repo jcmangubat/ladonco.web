@@ -47,7 +47,7 @@ const ClientsCollectionSection: React.FC = () => {
               }}
               renderItem={(client) => (
                 <img
-                  src={`/assets/images/clients/${client.image}`}
+                  src={`/images/clients/${client.image}`}
                   alt={client.project}
                   className={styles["client-item-img"]}
                 />

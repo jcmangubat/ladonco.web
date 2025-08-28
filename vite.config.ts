@@ -9,7 +9,7 @@ import { getServiceOfferings } from "./src/data/service-offerings";
 function getBlogRoutes() {
   const catalogPath = path.resolve(
     __dirname,
-    "public/contents/blogs-catalog.json"
+    "public/contents/posts/blogs-catalog.json"
   );
   if (!fs.existsSync(catalogPath)) return [];
 

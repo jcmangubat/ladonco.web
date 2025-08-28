@@ -22,7 +22,7 @@ const ProjectsPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/assets/contents/projects/index.json")
+    fetch("/contents/projects/index.json")
       .then((res) => res.json())
       .then((data) => {
         const normalized = data.map((p: any) => ({
@@ -49,7 +49,7 @@ const ProjectsPage = () => {
     <div className="overflow-hidden">
       <AppLayout>
         <PageIntroBanner
-          backgroundImageUrl="/assets/images/intro/bg-image4.jpg"
+          backgroundImageUrl="/images/intro/bg-image4.jpg"
           title="Projects"
           pageName="Projects"
         >
@@ -157,7 +157,7 @@ const ProjectsPage = () => {
                   <div className="col-md-5">
                     <div className="image-holder text-right">
                       <img
-                        src="/assets/images/post-item2.jpg"
+                        src="/images/post-item2.jpg"
                         alt="about-us"
                         className="img-fluid"
                       />

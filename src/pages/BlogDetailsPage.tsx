@@ -120,7 +120,7 @@ const BlogDetailsPage: React.FC = () => {
 
   const fetchCatalog = async () => {
     try {
-      const response = await fetch("/contents/blogs-catalog.json");
+      const response = await fetch("/contents/posts/blogs-catalog.json");
       if (!response.ok) {
         throw new Error(`Failed to load catalog (status ${response.status})`);
       }
@@ -196,7 +196,7 @@ const BlogDetailsPage: React.FC = () => {
           date={blogArticle.date}
         />
         <PageIntroBanner
-          backgroundImageUrl="/assets/images/intro/bg-image13.jpg"
+          backgroundImageUrl="/images/intro/bg-image13.jpg"
           title={blogArticle.title}
           pageName={
             <>

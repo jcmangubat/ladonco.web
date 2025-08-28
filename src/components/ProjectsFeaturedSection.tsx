@@ -20,7 +20,7 @@ const ProjectsFeaturedSection: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/assets/contents/projects/index.json")
+    fetch("/contents/projects/index.json")
       .then((res) => res.json())
       .then((data) => {
         const normalized = data.map((p: any) => ({

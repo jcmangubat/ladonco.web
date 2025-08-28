@@ -171,7 +171,7 @@ const ContactPage = () => {
     <div className="overflow-hidden">
       <AppLayout showCTA={false}>
         <PageIntroBanner
-          backgroundImageUrl="/assets/images/intro/bg-image4.png"
+          backgroundImageUrl="/images/intro/bg-image4.png"
           title="Contact Us"
           pageName="Contact"
         >
