@@ -22,7 +22,7 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          height: "60vh",
+          height: "65vh",
         }}
       >
         <div className="container h-100">
@@ -30,7 +30,7 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
             className="row h-100 align-items-center justify-content-center"
             data-aos="fade-up"
           >
-            <div className="col-auto justify-left banner-content">
+            <div className="mt-5 pt-3 col-auto justify-left banner-content">
               <h1 className="unselectable banner-title light text-uppercase fw-bold">
                 {title}
               </h1>
