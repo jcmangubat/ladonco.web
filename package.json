@@ -68,6 +68,7 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "dotenv": "^17.2.1",
+    "firebase": "^12.2.1",
     "framer-motion": "^12.23.6",
     "global": "^4.4.0",
     "gray-matter": "^4.0.3",

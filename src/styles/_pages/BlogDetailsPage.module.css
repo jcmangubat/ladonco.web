@@ -1,0 +1,4 @@
+.custom-hover-link:hover {
+  /* color: var(--bs-primary) !important; */
+  color: var(--primary-color) !important;
+}

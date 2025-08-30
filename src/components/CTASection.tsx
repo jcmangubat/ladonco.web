@@ -21,6 +21,7 @@ const AppLayout = () => {
         height: "567px",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
+        backgroundSize: "cover",
       }}
       // data-aos="fade-up"
       // data-aos-duration="2000"

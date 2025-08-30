@@ -1,23 +1,15 @@
 // React and hooks
 import { useEffect, useState } from "react";
-// Routing
 import { Link, useParams } from "react-router-dom";
-// Markdown rendering
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
-// Metadata parsing
-import matter from "gray-matter";
-// SEO
 import { Helmet } from "react-helmet";
-// App layout and UI
 import AppLayout from "@/components/AppLayout";
 import PageIntroBanner from "@/components/ui/PageWrapper";
-// Utilities
 import { slugify, stripFrontmatter } from "@/lib/utils";
-// Styles
 import styles from "@/styles/_pages/BlogDetailsPage.module.css";
 import { Components } from "node_modules/react-markdown/lib";
+import BlogComments from "./BlogComments";
 
 // Define the structure of a blog article
 // This should match the structure of your blog articles in the catalog
@@ -81,35 +73,35 @@ const markdownComponents: Components = {
   blockquote: ({ node, ...props }) => (
     <blockquote className="lh-lg text-secondary mb-4" {...props} />
   ),
-  code: ({
-    node,
-    inline,
-    className,
-    children,
-    ...props
-  }: {
-    node: any;
-    inline?: boolean;
-    className?: string;
-    children?: React.ReactNode;
-  }) =>
-    inline ? (
-      <code
-        className="bg-light px-1 rounded"
-        {...props}
-        style={{ fontFamily: "Georgia, serif", fontSize: "0.9rem" }}
-      >
-        {children}
-      </code>
-    ) : (
-      <pre
-        className="bg-light p-3 rounded overflow-auto"
-        style={{ fontFamily: "Georgia, serif", fontSize: "1rem" }}
-        {...props}
-      >
-        <code className={className}>{children}</code>
-      </pre>
-    ),
+  // code: ({
+  //   node,
+  //   inline,
+  //   className,
+  //   children,
+  //   ...props
+  // }: {
+  //   node: any;
+  //   inline?: boolean;
+  //   className?: string;
+  //   children?: React.ReactNode;
+  // }) =>
+  //   inline ? (
+  //     <code
+  //       className="bg-light px-1 rounded"
+  //       {...props}
+  //       style={{ fontFamily: "Georgia, serif", fontSize: "0.9rem" }}
+  //     >
+  //       {children}
+  //     </code>
+  //   ) : (
+  //     <pre
+  //       className="bg-light p-3 rounded overflow-auto"
+  //       style={{ fontFamily: "Georgia, serif", fontSize: "1rem" }}
+  //       {...props}
+  //     >
+  //       <code className={className}>{children}</code>
+  //     </pre>
+  //   ),
 };
 
 const BlogDetailsPage: React.FC = () => {
@@ -117,6 +109,7 @@ const BlogDetailsPage: React.FC = () => {
   const [blogArticle, setBlogArticle] = useState<BlogArticle | null>(null);
   const [markdownContent, setMarkdownContent] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+  const [allArticles, setAllArticles] = useState<BlogArticle[]>([]);
 
   const fetchCatalog = async () => {
     try {
@@ -148,6 +141,13 @@ const BlogDetailsPage: React.FC = () => {
     }
   };
 
+  const currentUrl =
+    typeof window !== "undefined"
+      ? window.location.href
+      : `${import.meta.env.VITE_SITE_URL || "https://ladonco.com"}/blogs/${
+          blogArticle.slug
+        }`;
+
   useEffect(() => {
     if (!slug) return;
 
@@ -160,6 +160,13 @@ const BlogDetailsPage: React.FC = () => {
         })) as BlogArticle[];
         console.log("Normalized articles:", normalized);
         console.log("Looking for slug:", slug);
+
+        // Sort by date descending
+        const sorted = normalized.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+
+        setAllArticles(sorted); // Save sorted articles
 
         const match = normalized.find((article) => article.slug === slug);
         if (!match) {
@@ -260,6 +267,65 @@ const BlogDetailsPage: React.FC = () => {
                     </div>
                   )}
                 </div>
+
+                {/* Social Share Section */}
+                <div className="row">
+                  <div className="col-12">
+                    <div className="mt-4 pt-3 border-top">
+                      <h6 className="text-muted mb-3 fw-semibold">
+                        Share this article
+                      </h6>
+                      <div className="d-flex flex-wrap gap-2">
+                        <a
+                          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                            blogArticle.title
+                          )}&url=${encodeURIComponent(currentUrl)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-sm btn-primary d-flex align-items-center gap-1"
+                        >
+                          <i className="bi bi-twitter"></i> Twitter
+                        </a>
+                        <a
+                          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                            currentUrl
+                          )}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-sm btn-primary d-flex align-items-center gap-1"
+                        >
+                          <i className="bi bi-facebook"></i> Facebook
+                        </a>
+                        <a
+                          href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+                            currentUrl
+                          )}&title=${encodeURIComponent(
+                            blogArticle.title
+                          )}&summary=${encodeURIComponent(
+                            blogArticle.excerpt
+                          )}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-sm btn-primary d-flex align-items-center gap-1"
+                        >
+                          <i className="bi bi-linkedin"></i> LinkedIn
+                        </a>
+                        <a
+                          href={`mailto:?subject=${encodeURIComponent(
+                            blogArticle.title
+                          )}&body=${encodeURIComponent(
+                            blogArticle.excerpt + "\n\n" + currentUrl
+                          )}`}
+                          className="btn btn-sm btn-secondary d-flex align-items-center gap-1"
+                        >
+                          <i className="bi bi-envelope-fill"></i> Email
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <BlogComments slug={blogArticle.slug} />
               </main>
 
               <aside className="col-md-3">
@@ -286,6 +352,24 @@ const BlogDetailsPage: React.FC = () => {
                     <h5 className="widget-title text-uppercase border-bottom pb-3 mb-3">
                       Other Articles
                     </h5>
+                    <ul className="list-unstyled mb-0">
+                      {allArticles
+                        .filter((article) => article.slug !== slug) // exclude current article
+                        .slice(0, 10) // limit to 5 (optional)
+                        .map((article) => (
+                          <li key={article.id} className="mb-2">
+                            <Link
+                              to={`/blogs/${article.slug}`}
+                              className={`fw-bold text-decoration-none text-dark ${styles["custom-hover-link"]}`}
+                            >
+                              {article.title}
+                            </Link>
+                            <small className="d-block text-muted">
+                              {new Date(article.date).toLocaleDateString()}
+                            </small>
+                          </li>
+                        ))}
+                    </ul>
                   </div>
                 </div>
               </aside>
